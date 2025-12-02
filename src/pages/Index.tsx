@@ -1,12 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Snowfall } from '@/components/Snowfall';
+import { Header } from '@/components/Header';
+import { Hero } from '@/components/Hero';
+import { Categories } from '@/components/Categories';
+import { ProductGrid } from '@/components/ProductGrid';
+import { Cart } from '@/components/Cart';
+import { Footer } from '@/components/Footer';
+import { useCart } from '@/hooks/useCart';
+import { products } from '@/data/products';
 
 const Index = () => {
+  const cart = useCart();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Snowfall />
+      <Header cartCount={cart.itemCount} onCartClick={() => cart.setIsOpen(true)} />
+      <main>
+        <Hero />
+        <Categories />
+        <ProductGrid products={products} onAddToCart={cart.addItem} />
+      </main>
+      <Footer />
+      <Cart
+        isOpen={cart.isOpen}
+        onClose={() => cart.setIsOpen(false)}
+        items={cart.items}
+        total={cart.total}
+        totalETH={cart.totalETH}
+        onUpdateQuantity={cart.updateQuantity}
+        onRemove={cart.removeItem}
+        onClear={cart.clearCart}
+      />
     </div>
   );
 };
