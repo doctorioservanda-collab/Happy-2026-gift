@@ -1,32 +1,47 @@
-import { Gift, Mail, MapPin, Phone, Twitter, Instagram, Facebook } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Gift, Mail, MapPin, Phone, Twitter, Instagram, Facebook, Heart, Sparkles } from 'lucide-react';
+import { Logo } from './Logo';
 
 export const Footer = () => {
   return (
-    <footer id="about" className="bg-foreground text-background py-16">
-      <div className="container mx-auto px-4">
+    <footer id="about" className="relative bg-gradient-to-b from-background to-christmas-dark/50 py-16 overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-christmas-gold/50 to-transparent" />
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute"
+            style={{ left: `${20 + i * 15}%`, top: '10%' }}
+            animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
+            transition={{ duration: 4 + i, repeat: Infinity, delay: i * 0.5 }}
+          >
+            <Sparkles className="w-4 h-4 text-christmas-gold/30" />
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <Gift className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="font-heading text-xl font-bold">
-                Merry Christmas
-              </span>
-            </div>
-            <p className="text-background/70 text-sm mb-4">
-              Your one-stop destination for magical Christmas gifts. 
-              Pay with crypto or card, we make gifting easy.
+            <Logo size="md" className="mb-6" />
+            <p className="text-muted-foreground text-sm mb-4">
+              Spreading joy and happiness across the globe. Premium Christmas 2026 gifts 
+              with Web3 payment options for the modern world.
             </p>
+            <div className="flex items-center gap-2 text-christmas-gold mb-4">
+              <Gift className="w-5 h-5" />
+              <span className="font-medium">1000+ Magical Gifts</span>
+            </div>
             <div className="flex gap-4">
-              <a href="#" className="text-background/70 hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-christmas-gold transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-background/70 hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-christmas-gold transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-background/70 hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-christmas-gold transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -34,11 +49,11 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-semibold mb-4">Shop</h4>
+            <h4 className="font-heading font-semibold text-foreground mb-4">Shop</h4>
             <ul className="space-y-2">
               {['All Products', 'New Arrivals', 'Best Sellers', 'Sale'].map(link => (
                 <li key={link}>
-                  <a href="#products" className="text-background/70 hover:text-primary transition-colors text-sm">
+                  <a href="#products" className="text-muted-foreground hover:text-christmas-gold transition-colors text-sm">
                     {link}
                   </a>
                 </li>
@@ -46,13 +61,13 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Categories */}
           <div>
-            <h4 className="font-heading font-semibold mb-4">Support</h4>
+            <h4 className="font-heading font-semibold text-foreground mb-4">Categories</h4>
             <ul className="space-y-2">
-              {['FAQ', 'Shipping', 'Returns', 'Crypto Payments'].map(link => (
+              {['Electronics', 'Fashion', 'Jewelry', 'Home Decor', 'Toys & Games'].map(link => (
                 <li key={link}>
-                  <a href="#" className="text-background/70 hover:text-primary transition-colors text-sm">
+                  <a href="#categories" className="text-muted-foreground hover:text-christmas-gold transition-colors text-sm">
                     {link}
                   </a>
                 </li>
@@ -62,36 +77,46 @@ export const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading font-semibold mb-4">Contact</h4>
+            <h4 className="font-heading font-semibold text-foreground mb-4">Contact</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-background/70">
-                <Mail className="w-4 h-4" />
-                hello@merrychristmas.shop
+              <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Mail className="w-4 h-4 text-christmas-gold" />
+                hello@merrychristmas2026.com
               </li>
-              <li className="flex items-center gap-2 text-sm text-background/70">
-                <Phone className="w-4 h-4" />
-                +1 (555) 123-4567
+              <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Phone className="w-4 h-4 text-christmas-gold" />
+                +1 (555) XMAS-2026
               </li>
-              <li className="flex items-center gap-2 text-sm text-background/70">
-                <MapPin className="w-4 h-4" />
-                North Pole, Arctic Circle
+              <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                <MapPin className="w-4 h-4 text-christmas-gold flex-shrink-0 mt-0.5" />
+                North Pole Workshop, Arctic Circle
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-background/60">
-            © 2024 Merry Christmas Gift Shop. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="text-background/60 hover:text-primary transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-background/60 hover:text-primary transition-colors">
-              Terms of Service
-            </a>
+        {/* Payment Methods */}
+        <div className="border-t border-christmas-gold/20 pt-8 mb-8">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-muted-foreground">
+            <span className="text-sm">Accepted Payments:</span>
+            <div className="flex items-center gap-4">
+              <span className="px-3 py-1 bg-secondary/20 rounded-full text-secondary text-sm font-medium">ETH</span>
+              <span className="px-3 py-1 bg-christmas-gold/20 rounded-full text-christmas-gold text-sm font-medium">BTC</span>
+              <span className="px-3 py-1 bg-muted rounded-full text-muted-foreground text-sm font-medium">VISA</span>
+              <span className="px-3 py-1 bg-muted rounded-full text-muted-foreground text-sm font-medium">Mastercard</span>
+            </div>
           </div>
+        </div>
+
+        <div className="text-center">
+          <p className="text-sm text-muted-foreground">
+            © 2026 Merry Christmas Gift Shop. Made with{' '}
+            <Heart className="w-4 h-4 inline text-christmas-red fill-christmas-red" />{' '}
+            for the holiday season.
+          </p>
+          <p className="text-xs text-muted-foreground/60 mt-2">
+            Web3 Powered • Crypto Payments • Worldwide Delivery
+          </p>
         </div>
       </div>
     </footer>
