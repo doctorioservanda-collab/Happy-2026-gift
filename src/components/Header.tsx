@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingCart, Wallet, Menu, X, Gift, Search } from 'lucide-react';
+import { ShoppingCart, Wallet, Menu, X } from 'lucide-react';
 import { useWallet } from '@/hooks/useWallet';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Logo } from './Logo';
 
 interface HeaderProps {
   cartCount: number;
@@ -13,9 +14,27 @@ interface HeaderProps {
 export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
   const { address, isConnecting, connect, disconnect, formatAddress, isConnected, balance } = useWallet();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 glass border-b border-border/50">
+    <motion.header 
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        isScrolled 
+          ? 'glass border-b border-christmas-gold/20 shadow-lg' 
+          : 'bg-transparent'
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -24,28 +43,21 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
             className="flex items-center gap-3"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center animate-glow">
-              <Gift className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="font-heading text-xl font-bold text-foreground">
-                Merry Christmas
-              </h1>
-              <p className="text-xs text-muted-foreground">Gift Shop</p>
-            </div>
+            <Logo size="sm" />
           </motion.a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#products" className="text-foreground/80 hover:text-primary transition-colors font-medium">
-              Shop
-            </a>
-            <a href="#categories" className="text-foreground/80 hover:text-primary transition-colors font-medium">
-              Categories
-            </a>
-            <a href="#about" className="text-foreground/80 hover:text-primary transition-colors font-medium">
-              About
-            </a>
+            {['Home', 'Products', 'Categories', 'About'].map((item) => (
+              <motion.a
+                key={item}
+                href={item === 'Home' ? '/' : `#${item.toLowerCase()}`}
+                className="text-foreground/80 hover:text-christmas-gold transition-colors font-medium tracking-wide"
+                whileHover={{ scale: 1.05 }}
+              >
+                {item}
+              </motion.a>
+            ))}
           </nav>
 
           {/* Actions */}
@@ -58,9 +70,9 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex items-center gap-2"
                 >
-                  <div className="px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30">
+                  <div className="px-4 py-2 rounded-full bg-christmas-green/10 border border-christmas-green/30">
                     <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+                      <div className="w-2 h-2 rounded-full bg-christmas-green animate-pulse" />
                       <span className="text-sm font-medium text-foreground">
                         {formatAddress(address!)}
                       </span>
@@ -82,7 +94,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                 <Button
                   onClick={connect}
                   disabled={isConnecting}
-                  className="btn-christmas flex items-center gap-2"
+                  className="bg-gradient-to-r from-secondary to-christmas-green text-foreground hover:opacity-90 flex items-center gap-2"
                 >
                   <Wallet className="w-4 h-4" />
                   {isConnecting ? 'Connecting...' : 'Connect Wallet'}
@@ -95,11 +107,11 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={onCartClick}
-              className="relative p-3 rounded-full bg-card hover:bg-muted transition-colors"
+              className="relative p-3 rounded-full bg-card hover:bg-christmas-gold/10 border border-christmas-gold/30 transition-colors"
             >
-              <ShoppingCart className="w-5 h-5 text-foreground" />
+              <ShoppingCart className="w-5 h-5 text-christmas-gold" />
               {cartCount > 0 && (
-                <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-primary text-primary-foreground text-xs">
+                <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-christmas-red text-snow text-xs">
                   {cartCount}
                 </Badge>
               )}
@@ -126,23 +138,24 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden overflow-hidden"
+              className="md:hidden overflow-hidden bg-background/95 backdrop-blur-md rounded-b-xl border border-christmas-gold/20"
             >
-              <nav className="py-4 flex flex-col gap-4">
-                <a href="#products" className="text-foreground/80 hover:text-primary transition-colors font-medium">
-                  Shop
-                </a>
-                <a href="#categories" className="text-foreground/80 hover:text-primary transition-colors font-medium">
-                  Categories
-                </a>
-                <a href="#about" className="text-foreground/80 hover:text-primary transition-colors font-medium">
-                  About
-                </a>
+              <nav className="py-4 flex flex-col gap-4 px-4">
+                {['Home', 'Products', 'Categories', 'About'].map((item) => (
+                  <a 
+                    key={item}
+                    href={item === 'Home' ? '/' : `#${item.toLowerCase()}`} 
+                    className="text-foreground/80 hover:text-christmas-gold transition-colors font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </a>
+                ))}
                 {!isConnected && (
                   <Button
                     onClick={connect}
                     disabled={isConnecting}
-                    className="btn-christmas w-full"
+                    className="bg-gradient-to-r from-secondary to-christmas-green w-full"
                   >
                     <Wallet className="w-4 h-4 mr-2" />
                     {isConnecting ? 'Connecting...' : 'Connect Wallet'}
@@ -153,6 +166,6 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
           )}
         </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   );
 };
