@@ -16,6 +16,8 @@ export default {
       fontFamily: {
         heading: ['Playfair Display', 'serif'],
         body: ['Outfit', 'sans-serif'],
+        display: ['Syne', 'sans-serif'],
+        mono: ['Space Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
