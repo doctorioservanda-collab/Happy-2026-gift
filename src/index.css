@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -56,6 +56,8 @@
 
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Outfit', sans-serif;
+    --font-display: 'Syne', sans-serif;
+    --font-mono: 'Space Mono', monospace;
   }
 
   .dark {
@@ -208,4 +210,167 @@
 
 .animate-glow {
   animation: glow 2s ease-in-out infinite;
+}
+
+/* Modern 2026 Letter Animations */
+@keyframes letterReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) rotateX(-90deg);
+    filter: blur(10px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10%) rotateX(10deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes glitchText {
+  0%, 100% {
+    text-shadow: 
+      2px 0 hsl(0 72% 51%),
+      -2px 0 hsl(145 63% 32%);
+  }
+  25% {
+    text-shadow: 
+      -2px 0 hsl(0 72% 51%),
+      2px 0 hsl(145 63% 32%);
+  }
+  50% {
+    text-shadow: 
+      2px 2px hsl(0 72% 51%),
+      -2px -2px hsl(145 63% 32%);
+  }
+  75% {
+    text-shadow: 
+      -2px 2px hsl(0 72% 51%),
+      2px -2px hsl(145 63% 32%);
+  }
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px hsl(43 96% 56% / 0.8),
+      0 0 20px hsl(43 96% 56% / 0.6),
+      0 0 30px hsl(43 96% 56% / 0.4),
+      0 0 40px hsl(43 96% 56% / 0.2);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px hsl(43 96% 56% / 1),
+      0 0 40px hsl(43 96% 56% / 0.8),
+      0 0 60px hsl(43 96% 56% / 0.6),
+      0 0 80px hsl(43 96% 56% / 0.4);
+  }
+}
+
+@keyframes morphText {
+  0%, 100% {
+    letter-spacing: 0.05em;
+    font-weight: 400;
+  }
+  50% {
+    letter-spacing: 0.15em;
+    font-weight: 800;
+  }
+}
+
+@keyframes slideInBounce {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(20px) scale(1.1);
+  }
+  80% {
+    transform: translateX(-10px) scale(0.95);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.animate-letter-reveal {
+  animation: letterReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-glitch {
+  animation: glitchText 0.3s ease-in-out;
+}
+
+.animate-neon-pulse {
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+.animate-morph {
+  animation: morphText 4s ease-in-out infinite;
+}
+
+.animate-slide-bounce {
+  animation: slideInBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Modern gradient text effects */
+.text-gradient-modern {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(
+    135deg,
+    hsl(0 72% 51%) 0%,
+    hsl(43 96% 56%) 50%,
+    hsl(0 72% 51%) 100%
+  );
+  background-size: 200% auto;
+  animation: gradientFlow 3s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* 2026 special styling */
+.text-2026 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+/* Category card hover effects */
+.category-card {
+  @apply relative overflow-hidden rounded-2xl;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.category-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent z-10;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover::before {
+  @apply from-primary/80 via-primary/40;
+}
+
+.category-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px -12px hsl(0 72% 51% / 0.4);
 }
