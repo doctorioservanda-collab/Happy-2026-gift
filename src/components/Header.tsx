@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingCart, Wallet, Menu, X } from 'lucide-react';
+import { ShoppingCart, Wallet, Menu, X, User, LogOut } from 'lucide-react';
 import { useWallet } from '@/hooks/useWallet';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Logo } from './Logo';
+import { supabase } from '@/integrations/supabase/client';
+import { User as SupabaseUser } from '@supabase/supabase-js';
 
 interface HeaderProps {
   cartCount: number;
@@ -15,6 +18,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
   const { address, isConnecting, connect, disconnect, formatAddress, isConnected, balance } = useWallet();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [user, setUser] = useState<SupabaseUser | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +27,22 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+  };
 
   return (
     <motion.header 
@@ -61,7 +81,45 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            {/* Auth Button */}
+            <div className="hidden sm:block">
+              {user ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex items-center gap-2"
+                >
+                  <div className="px-3 py-2 rounded-full bg-christmas-gold/10 border border-christmas-gold/30">
+                    <div className="flex items-center gap-2">
+                      <User className="w-4 h-4 text-christmas-gold" />
+                      <span className="text-sm font-medium text-foreground">
+                        {user.email?.split('@')[0]}
+                      </span>
+                    </div>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={handleSignOut}
+                    className="text-muted-foreground hover:text-destructive"
+                  >
+                    <LogOut className="w-4 h-4" />
+                  </Button>
+                </motion.div>
+              ) : (
+                <Link to="/auth">
+                  <Button
+                    variant="outline"
+                    className="border-christmas-gold/30 text-foreground hover:bg-christmas-gold/10"
+                  >
+                    <User className="w-4 h-4 mr-2" />
+                    Sign In
+                  </Button>
+                </Link>
+              )}
+            </div>
+
             {/* Wallet Connection */}
             <div className="hidden sm:block">
               {isConnected ? (
@@ -151,6 +209,24 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                     {item}
                   </a>
                 ))}
+                {!user && (
+                  <Link to="/auth" onClick={() => setMobileMenuOpen(false)}>
+                    <Button variant="outline" className="w-full border-christmas-gold/30">
+                      <User className="w-4 h-4 mr-2" />
+                      Sign In
+                    </Button>
+                  </Link>
+                )}
+                {user && (
+                  <Button
+                    variant="outline"
+                    onClick={handleSignOut}
+                    className="w-full border-destructive/30 text-destructive"
+                  >
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Sign Out
+                  </Button>
+                )}
                 {!isConnected && (
                   <Button
                     onClick={connect}
