@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Gift, Wallet, Sparkles } from 'lucide-react';
+import { ArrowDown, Wallet, Sparkles } from 'lucide-react';
 import { Logo } from '../Logo';
 import { AnimatedText, Animated2026, AnimatedWord } from './AnimatedLetters';
+import gift3D from '@/assets/gift-3d.png';
 
 interface HeroContentProps {
   showContent: boolean;
@@ -44,18 +45,20 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
+            style={{ perspective: '2000px' }}
           >
-            {/* Logo with glow animation */}
+            {/* Logo with 3D glow animation */}
             <motion.div
               variants={itemVariants}
               className="mb-8"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, rotateY: 5 }}
+              style={{ transformStyle: 'preserve-3d' }}
             >
               <motion.div
                 animate={{ 
                   filter: [
                     'drop-shadow(0 0 10px hsl(43 96% 56% / 0.3))',
-                    'drop-shadow(0 0 25px hsl(43 96% 56% / 0.6))',
+                    'drop-shadow(0 0 30px hsl(43 96% 56% / 0.6))',
                     'drop-shadow(0 0 10px hsl(43 96% 56% / 0.3))',
                   ]
                 }}
@@ -77,25 +80,27 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               </span>
             </motion.div>
             
-            {/* Modern Animated Main Title */}
+            {/* Modern 3D Animated Main Title */}
             <motion.h1 
               variants={itemVariants}
               className="font-heading text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight"
+              style={{ perspective: '1500px', transformStyle: 'preserve-3d' }}
             >
               <motion.span 
                 className="block"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                initial={{ opacity: 0, x: -100, rotateY: -30 }}
+                animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                transition={{ duration: 1, delay: 0.3, type: 'spring', stiffness: 60 }}
               >
-                <AnimatedWord word="Happy" className="font-display" delay={0.3} />
+                <AnimatedWord word="Happy" className="font-display" delay={0.3} is3D />
               </motion.span>
               
               <motion.span 
-                className="block text-6xl md:text-8xl overflow-hidden"
+                className="block text-6xl md:text-8xl overflow-visible"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
+                style={{ transformStyle: 'preserve-3d' }}
               >
                 <motion.span
                   className="inline-block text-gradient-modern"
@@ -103,14 +108,14 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
                     backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                   }}
                   transition={{ duration: 5, repeat: Infinity }}
-                  style={{ backgroundSize: '200% 200%' }}
+                  style={{ backgroundSize: '200% 200%', transformStyle: 'preserve-3d' }}
                 >
-                  <AnimatedText text="Merry Christmas" variant="modern" staggerDelay={5} />
+                  <AnimatedText text="Merry Christmas" variant="3d" staggerDelay={5} />
                 </motion.span>
               </motion.span>
               
-              {/* Modern 2026 Animation */}
-              <motion.span className="block">
+              {/* Modern 3D 2026 Animation */}
+              <motion.span className="block" style={{ transformStyle: 'preserve-3d' }}>
                 <Animated2026 />
               </motion.span>
             </motion.h1>
@@ -129,29 +134,40 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
+              {/* 3D Gift Button */}
               <motion.a
                 href="#products"
-                className="btn-christmas inline-flex items-center justify-center gap-2 text-lg"
+                className="btn-christmas inline-flex items-center justify-center gap-3 text-lg relative overflow-visible"
                 whileHover={{ 
                   scale: 1.05, 
-                  boxShadow: '0 0 40px hsl(43 96% 56% / 0.6)',
+                  rotateY: 5,
+                  boxShadow: '0 0 50px hsl(43 96% 56% / 0.6)',
                 }}
                 whileTap={{ scale: 0.98 }}
                 animate={{
                   boxShadow: [
                     '0 0 20px hsl(0 72% 51% / 0.3)',
-                    '0 0 35px hsl(0 72% 51% / 0.5)',
+                    '0 0 40px hsl(0 72% 51% / 0.5)',
                     '0 0 20px hsl(0 72% 51% / 0.3)',
                   ]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
+                style={{ transformStyle: 'preserve-3d' }}
               >
-                <motion.div
-                  animate={{ rotate: [0, -10, 10, 0] }}
-                  transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
-                >
-                  <Gift className="w-5 h-5" />
-                </motion.div>
+                <motion.img
+                  src={gift3D}
+                  alt="Gift"
+                  className="w-8 h-8 object-contain"
+                  animate={{ 
+                    rotateY: [0, 360],
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ 
+                    rotateY: { duration: 4, repeat: Infinity, ease: 'linear' },
+                    scale: { duration: 2, repeat: Infinity }
+                  }}
+                  style={{ transformStyle: 'preserve-3d' }}
+                />
                 Shop Presents
                 <ArrowDown className="w-4 h-4" />
               </motion.a>
@@ -159,15 +175,16 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               <motion.a
                 href="#categories"
                 className="btn-gold inline-flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, rotateY: -5 }}
                 whileTap={{ scale: 0.98 }}
+                style={{ transformStyle: 'preserve-3d' }}
               >
                 <Wallet className="w-5 h-5" />
                 Pay with Crypto
               </motion.a>
             </motion.div>
 
-            {/* Stats with stagger animation */}
+            {/* Stats with 3D stagger animation */}
             <motion.div
               variants={itemVariants}
               className="mt-16 grid grid-cols-4 gap-6"
@@ -176,18 +193,19 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
                 <motion.div 
                   key={index} 
                   className="text-center sm:text-left"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 2 + index * 0.2 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
+                  initial={{ opacity: 0, y: 50, rotateX: -45 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  transition={{ delay: 2 + index * 0.2, type: 'spring', stiffness: 80 }}
+                  whileHover={{ scale: 1.15, y: -10, rotateY: 10 }}
+                  style={{ transformStyle: 'preserve-3d' }}
                 >
                   <motion.div 
                     className="font-display text-2xl md:text-3xl font-bold text-christmas-gold"
                     animate={{ 
                       textShadow: [
-                        '0 0 5px hsl(43 96% 56% / 0.3)',
-                        '0 0 15px hsl(43 96% 56% / 0.5)',
-                        '0 0 5px hsl(43 96% 56% / 0.3)',
+                        '0 0 10px hsl(43 96% 56% / 0.3), 0 10px 20px hsl(0 0% 0% / 0.2)',
+                        '0 0 25px hsl(43 96% 56% / 0.6), 0 15px 30px hsl(0 0% 0% / 0.3)',
+                        '0 0 10px hsl(43 96% 56% / 0.3), 0 10px 20px hsl(0 0% 0% / 0.2)',
                       ]
                     }}
                     transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
