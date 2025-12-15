@@ -90,13 +90,19 @@ export const AnimatedText = ({ text, className, variant = 'default', staggerDela
   </span>
 );
 
-// Modern 3D 2026 Number Animation - Updated for New Year theme
+// Modern 3D 2026 with Rainbow Gradient Animation
 export const Animated2026 = () => {
   const digits = ['2', '0', '2', '6'];
+  const digitColors = [
+    'linear-gradient(135deg, hsl(45 100% 55%) 0%, hsl(35 90% 50%) 50%, hsl(45 100% 60%) 100%)',
+    'linear-gradient(135deg, hsl(280 80% 60%) 0%, hsl(320 80% 55%) 50%, hsl(280 80% 65%) 100%)',
+    'linear-gradient(135deg, hsl(340 90% 55%) 0%, hsl(0 80% 60%) 50%, hsl(340 90% 60%) 100%)',
+    'linear-gradient(135deg, hsl(180 80% 50%) 0%, hsl(200 90% 55%) 50%, hsl(180 80% 55%) 100%)',
+  ];
   
   return (
     <motion.span 
-      className="inline-flex text-2026"
+      className="inline-flex gap-2 md:gap-4 text-2026"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.8 }}
@@ -105,7 +111,14 @@ export const Animated2026 = () => {
       {digits.map((digit, i) => (
         <motion.span
           key={i}
-          className="inline-block text-primary relative"
+          className="inline-block relative font-display text-7xl md:text-9xl font-black"
+          style={{
+            background: digitColors[i],
+            backgroundSize: '200% 200%',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            transformStyle: 'preserve-3d',
+          }}
           initial={{ 
             opacity: 0, 
             y: 200, 
@@ -120,37 +133,34 @@ export const Animated2026 = () => {
             rotateY: 0,
             rotateX: 0,
             scale: 1,
-            z: 0
+            z: 0,
+            backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
           }}
           transition={{
             delay: 1 + i * 0.15,
             type: 'spring',
             stiffness: 80,
             damping: 10,
+            backgroundPosition: { duration: 4, repeat: Infinity, ease: 'linear', delay: 1.5 + i * 0.15 }
           }}
           whileHover={{ 
             scale: 1.4, 
             rotateY: 25,
             rotateX: -15,
             z: 100,
-            color: 'hsl(280, 60%, 50%)',
             transition: { duration: 0.3, type: 'spring' }
           }}
-          style={{ transformStyle: 'preserve-3d' }}
         >
           <motion.span
             className="relative inline-block"
             animate={{ 
               textShadow: [
-                '0 0 20px hsl(45 90% 55% / 0.5), 0 0 40px hsl(45 90% 55% / 0.3), 0 20px 40px hsl(0 0% 0% / 0.3)',
-                '0 0 40px hsl(45 90% 55% / 0.8), 0 0 80px hsl(45 90% 55% / 0.5), 0 30px 60px hsl(0 0% 0% / 0.4)',
-                '0 0 20px hsl(45 90% 55% / 0.5), 0 0 40px hsl(45 90% 55% / 0.3), 0 20px 40px hsl(0 0% 0% / 0.3)',
+                `0 0 30px ${i === 0 ? 'hsl(45 90% 55% / 0.5)' : i === 1 ? 'hsl(280 60% 50% / 0.5)' : i === 2 ? 'hsl(340 70% 55% / 0.5)' : 'hsl(180 80% 50% / 0.5)'}, 0 20px 40px hsl(0 0% 0% / 0.3)`,
+                `0 0 60px ${i === 0 ? 'hsl(45 90% 55% / 0.8)' : i === 1 ? 'hsl(280 60% 50% / 0.8)' : i === 2 ? 'hsl(340 70% 55% / 0.8)' : 'hsl(180 80% 50% / 0.8)'}, 0 30px 60px hsl(0 0% 0% / 0.4)`,
+                `0 0 30px ${i === 0 ? 'hsl(45 90% 55% / 0.5)' : i === 1 ? 'hsl(280 60% 50% / 0.5)' : i === 2 ? 'hsl(340 70% 55% / 0.5)' : 'hsl(180 80% 50% / 0.5)'}, 0 20px 40px hsl(0 0% 0% / 0.3)`,
               ],
             }}
             transition={{ duration: 2, repeat: Infinity, delay: i * 0.25 }}
-            style={{
-              textShadow: '0 10px 30px hsl(0 0% 0% / 0.3)',
-            }}
           >
             {digit}
           </motion.span>
@@ -160,7 +170,7 @@ export const Animated2026 = () => {
   );
 };
 
-// Animated word with 3D stagger
+// Animated word with 3D stagger and rainbow effect
 export const AnimatedWord = ({ 
   word, 
   className,

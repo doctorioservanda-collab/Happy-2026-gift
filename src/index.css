@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Italiana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -60,11 +60,11 @@
     --shadow-gold: 0 4px 30px hsl(45 90% 55% / 0.4);
     --shadow-firework: 0 0 80px hsl(280 60% 50% / 0.4);
 
-    --font-heading: 'Cormorant Garamond', serif;
-    --font-body: 'Outfit', sans-serif;
-    --font-display: 'Syne', sans-serif;
-    --font-mono: 'Space Mono', monospace;
-    --font-elegant: 'Italiana', serif;
+    --font-heading: 'Bodoni Moda', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-display: 'Orbitron', sans-serif;
+    --font-mono: 'Space Grotesk', sans-serif;
+    --font-elegant: 'Bebas Neue', sans-serif;
   }
 
   .dark {
