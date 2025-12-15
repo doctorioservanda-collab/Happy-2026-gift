@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Italiana&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,88 +6,95 @@
 
 @layer base {
   :root {
-    --background: 10 20% 98%;
-    --foreground: 0 0% 10%;
+    --background: 240 10% 4%;
+    --foreground: 45 30% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card: 240 8% 8%;
+    --card-foreground: 45 30% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover: 240 8% 8%;
+    --popover-foreground: 45 30% 96%;
 
-    --primary: 0 72% 51%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 45 90% 55%;
+    --primary-foreground: 240 10% 4%;
 
-    --secondary: 145 63% 32%;
+    --secondary: 280 60% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 30 20% 94%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 240 8% 15%;
+    --muted-foreground: 45 10% 65%;
 
-    --accent: 43 96% 56%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 0 70% 55%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 20% 88%;
-    --input: 30 20% 88%;
-    --ring: 0 72% 51%;
+    --border: 240 8% 18%;
+    --input: 240 8% 18%;
+    --ring: 45 90% 55%;
 
     --radius: 0.75rem;
 
-    /* Christmas specific colors */
-    --christmas-red: 0 72% 51%;
-    --christmas-green: 145 63% 32%;
-    --christmas-gold: 43 96% 56%;
-    --christmas-cream: 40 33% 96%;
-    --christmas-dark: 150 30% 12%;
+    /* New Year 2026 specific colors */
+    --newyear-gold: 45 90% 55%;
+    --newyear-champagne: 40 60% 70%;
+    --newyear-purple: 280 60% 50%;
+    --newyear-rose: 340 70% 55%;
+    --newyear-midnight: 240 30% 8%;
+    --newyear-silver: 220 15% 80%;
+    --firework-red: 0 80% 55%;
+    --firework-blue: 200 90% 60%;
+    --firework-green: 145 80% 50%;
     --snow-white: 0 0% 100%;
 
     /* Gradients */
-    --gradient-christmas: linear-gradient(135deg, hsl(0 72% 51%) 0%, hsl(0 72% 40%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(43 96% 56%) 0%, hsl(35 90% 45%) 100%);
-    --gradient-festive: linear-gradient(180deg, hsl(10 20% 98%) 0%, hsl(40 33% 96%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 90% 55%) 0%, hsl(35 80% 45%) 50%, hsl(45 90% 55%) 100%);
+    --gradient-champagne: linear-gradient(135deg, hsl(40 60% 70%) 0%, hsl(45 90% 55%) 50%, hsl(40 60% 70%) 100%);
+    --gradient-midnight: linear-gradient(180deg, hsl(240 30% 8%) 0%, hsl(250 40% 15%) 100%);
+    --gradient-firework: linear-gradient(135deg, hsl(0 80% 55%) 0%, hsl(280 60% 50%) 50%, hsl(200 90% 60%) 100%);
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
-    --shadow-glow: 0 0 40px hsl(0 72% 51% / 0.2);
-    --shadow-gold: 0 4px 20px hsl(43 96% 56% / 0.3);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 60px hsl(45 90% 55% / 0.3);
+    --shadow-gold: 0 4px 30px hsl(45 90% 55% / 0.4);
+    --shadow-firework: 0 0 80px hsl(280 60% 50% / 0.4);
 
-    --font-heading: 'Playfair Display', serif;
+    --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Outfit', sans-serif;
     --font-display: 'Syne', sans-serif;
     --font-mono: 'Space Mono', monospace;
+    --font-elegant: 'Italiana', serif;
   }
 
   .dark {
-    --background: 150 30% 8%;
-    --foreground: 0 0% 95%;
+    --background: 240 10% 4%;
+    --foreground: 45 30% 96%;
 
-    --card: 150 25% 12%;
-    --card-foreground: 0 0% 95%;
+    --card: 240 8% 8%;
+    --card-foreground: 45 30% 96%;
 
-    --popover: 150 25% 12%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 240 8% 8%;
+    --popover-foreground: 45 30% 96%;
 
-    --primary: 0 72% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 45 90% 55%;
+    --primary-foreground: 240 10% 4%;
 
-    --secondary: 145 50% 40%;
+    --secondary: 280 60% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 150 20% 18%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 240 8% 15%;
+    --muted-foreground: 45 10% 65%;
 
-    --accent: 43 90% 55%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 0 70% 55%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 150 20% 20%;
-    --input: 150 20% 20%;
-    --ring: 0 72% 55%;
+    --border: 240 8% 18%;
+    --input: 240 8% 18%;
+    --ring: 45 90% 55%;
   }
 }
 
@@ -110,32 +117,39 @@
 }
 
 @layer components {
-  .text-gradient-christmas {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-christmas);
-  }
-
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-gold);
   }
 
-  .btn-christmas {
+  .text-gradient-champagne {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-champagne);
+  }
+
+  .text-gradient-firework {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-firework);
+    background-size: 200% auto;
+    animation: gradientFlow 3s ease-in-out infinite;
+  }
+
+  .btn-newyear {
     @apply bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold
            transition-all duration-300 hover:scale-105 hover:shadow-lg;
     box-shadow: var(--shadow-glow);
   }
 
-  .btn-gold {
-    @apply px-8 py-4 rounded-full font-semibold text-foreground
+  .btn-champagne {
+    @apply px-8 py-4 rounded-full font-semibold text-primary-foreground
            transition-all duration-300 hover:scale-105;
-    background-image: var(--gradient-gold);
+    background-image: var(--gradient-champagne);
     box-shadow: var(--shadow-gold);
   }
 
   .card-festive {
     @apply bg-card rounded-2xl overflow-hidden transition-all duration-500
-           hover:shadow-xl hover:-translate-y-2;
+           hover:shadow-xl hover:-translate-y-2 border border-border;
     box-shadow: var(--shadow-soft);
   }
 
@@ -143,11 +157,15 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      hsl(43 96% 56% / 0.3) 50%,
+      hsl(45 90% 55% / 0.3) 50%,
       transparent 100%
     );
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-xl bg-background/60 border border-border/50;
   }
 }
 
@@ -157,7 +175,11 @@
   }
 
   .text-shadow {
-    text-shadow: 0 2px 10px hsl(0 0% 0% / 0.2);
+    text-shadow: 0 2px 10px hsl(0 0% 0% / 0.5);
+  }
+
+  .text-shadow-gold {
+    text-shadow: 0 0 30px hsl(45 90% 55% / 0.5), 0 0 60px hsl(45 90% 55% / 0.3);
   }
 }
 
@@ -187,16 +209,55 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
 }
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(0 72% 51% / 0.3);
+    box-shadow: 0 0 20px hsl(45 90% 55% / 0.3);
   }
   50% {
-    box-shadow: 0 0 40px hsl(0 72% 51% / 0.5);
+    box-shadow: 0 0 50px hsl(45 90% 55% / 0.6);
+  }
+}
+
+/* Firework Animation */
+@keyframes firework {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes fireworkBurst {
+  0% {
+    box-shadow: 0 0 0 0 hsl(45 90% 55% / 0.8),
+                0 0 0 0 hsl(280 60% 50% / 0.8),
+                0 0 0 0 hsl(0 80% 55% / 0.8);
+  }
+  100% {
+    box-shadow: 0 -50px 0 0 hsl(45 90% 55% / 0),
+                -50px 30px 0 0 hsl(280 60% 50% / 0),
+                50px 30px 0 0 hsl(0 80% 55% / 0);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
   }
 }
 
@@ -210,6 +271,10 @@
 
 .animate-glow {
   animation: glow 2s ease-in-out infinite;
+}
+
+.animate-firework {
+  animation: firework 1s ease-out infinite;
 }
 
 /* Modern 2026 Letter Animations */
@@ -231,54 +296,35 @@
   }
 }
 
-@keyframes glitchText {
-  0%, 100% {
-    text-shadow: 
-      2px 0 hsl(0 72% 51%),
-      -2px 0 hsl(145 63% 32%);
-  }
-  25% {
-    text-shadow: 
-      -2px 0 hsl(0 72% 51%),
-      2px 0 hsl(145 63% 32%);
-  }
-  50% {
-    text-shadow: 
-      2px 2px hsl(0 72% 51%),
-      -2px -2px hsl(145 63% 32%);
-  }
-  75% {
-    text-shadow: 
-      -2px 2px hsl(0 72% 51%),
-      2px -2px hsl(145 63% 32%);
-  }
-}
-
 @keyframes neonPulse {
   0%, 100% {
     text-shadow: 
-      0 0 10px hsl(43 96% 56% / 0.8),
-      0 0 20px hsl(43 96% 56% / 0.6),
-      0 0 30px hsl(43 96% 56% / 0.4),
-      0 0 40px hsl(43 96% 56% / 0.2);
+      0 0 10px hsl(45 90% 55% / 0.8),
+      0 0 20px hsl(45 90% 55% / 0.6),
+      0 0 30px hsl(45 90% 55% / 0.4),
+      0 0 40px hsl(45 90% 55% / 0.2);
   }
   50% {
     text-shadow: 
-      0 0 20px hsl(43 96% 56% / 1),
-      0 0 40px hsl(43 96% 56% / 0.8),
-      0 0 60px hsl(43 96% 56% / 0.6),
-      0 0 80px hsl(43 96% 56% / 0.4);
+      0 0 20px hsl(45 90% 55% / 1),
+      0 0 40px hsl(45 90% 55% / 0.8),
+      0 0 60px hsl(45 90% 55% / 0.6),
+      0 0 80px hsl(45 90% 55% / 0.4);
   }
 }
 
-@keyframes morphText {
-  0%, 100% {
-    letter-spacing: 0.05em;
-    font-weight: 400;
+@keyframes champagneBubble {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
   }
   50% {
-    letter-spacing: 0.15em;
-    font-weight: 800;
+    transform: translateY(-20px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(0.8);
+    opacity: 0;
   }
 }
 
@@ -299,33 +345,20 @@
   }
 }
 
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-
 .animate-letter-reveal {
   animation: letterReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-glitch {
-  animation: glitchText 0.3s ease-in-out;
 }
 
 .animate-neon-pulse {
   animation: neonPulse 2s ease-in-out infinite;
 }
 
-.animate-morph {
-  animation: morphText 4s ease-in-out infinite;
-}
-
 .animate-slide-bounce {
   animation: slideInBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-champagne-bubble {
+  animation: champagneBubble 2s ease-out infinite;
 }
 
 /* Modern gradient text effects */
@@ -333,9 +366,9 @@
   @apply bg-clip-text text-transparent;
   background-image: linear-gradient(
     135deg,
-    hsl(0 72% 51%) 0%,
-    hsl(43 96% 56%) 50%,
-    hsl(0 72% 51%) 100%
+    hsl(45 90% 55%) 0%,
+    hsl(280 60% 50%) 50%,
+    hsl(45 90% 55%) 100%
   );
   background-size: 200% auto;
   animation: gradientFlow 3s ease-in-out infinite;
@@ -351,26 +384,57 @@
 .text-2026 {
   font-family: var(--font-display);
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
 }
 
 /* Category card hover effects */
 .category-card {
-  @apply relative overflow-hidden rounded-2xl;
+  @apply relative overflow-hidden rounded-2xl border border-border/50;
   transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .category-card::before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent z-10;
+  @apply absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent z-10;
   transition: all 0.3s ease;
 }
 
 .category-card:hover::before {
-  @apply from-primary/80 via-primary/40;
+  @apply from-primary/50 via-primary/20;
 }
 
 .category-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 25px 50px -12px hsl(0 72% 51% / 0.4);
+  box-shadow: 0 25px 50px -12px hsl(45 90% 55% / 0.3);
+}
+
+/* Fireworks overlay */
+.fireworks-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.firework-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: fireworkRise 1.5s ease-out forwards;
+}
+
+@keyframes fireworkRise {
+  0% {
+    transform: translateY(100vh) scale(1);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20vh) scale(0);
+    opacity: 0;
+  }
 }

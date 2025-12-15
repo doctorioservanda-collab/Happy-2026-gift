@@ -7,6 +7,7 @@ import {
   SparklesLayer,
   GlowingOrbs 
 } from './hero';
+import { Fireworks } from './Fireworks';
 
 export const Hero = () => {
   const [showContent, setShowContent] = useState(false);
@@ -19,6 +20,7 @@ export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <HeroBackground />
+      <Fireworks />
       <SparklesLayer />
       <GlowingOrbs />
       <FloatingPresents />

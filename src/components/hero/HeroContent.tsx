@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Wallet, Sparkles } from 'lucide-react';
-import { Logo } from '../Logo';
+import { ArrowDown, Wallet, Sparkles, PartyPopper, Wine } from 'lucide-react';
 import { AnimatedText, Animated2026, AnimatedWord } from './AnimatedLetters';
 import gift3D from '@/assets/gift-3d.png';
+import brandCandle from '@/assets/brand-candle-2026.png';
 
 interface HeroContentProps {
   showContent: boolean;
@@ -30,10 +30,10 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
   };
 
   const stats = [
-    { value: '1000+', label: 'Unique Gifts' },
-    { value: 'ETH', label: 'Crypto Pay' },
-    { value: '5', label: 'Continents' },
-    { value: '24h', label: 'Fast Delivery' },
+    { value: '2026+', label: 'Unique Gifts', icon: PartyPopper },
+    { value: 'ETH', label: 'Crypto Pay', icon: Wallet },
+    { value: 'Premium', label: 'Quality', icon: Wine },
+    { value: '24h', label: 'Fast Delivery', icon: Sparkles },
   ];
 
   return (
@@ -47,7 +47,7 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
             animate="visible"
             style={{ perspective: '2000px' }}
           >
-            {/* Logo with 3D glow animation */}
+            {/* Brand Candle Logo */}
             <motion.div
               variants={itemVariants}
               className="mb-8"
@@ -57,27 +57,41 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               <motion.div
                 animate={{ 
                   filter: [
-                    'drop-shadow(0 0 10px hsl(43 96% 56% / 0.3))',
-                    'drop-shadow(0 0 30px hsl(43 96% 56% / 0.6))',
-                    'drop-shadow(0 0 10px hsl(43 96% 56% / 0.3))',
+                    'drop-shadow(0 0 15px hsl(45 90% 55% / 0.4))',
+                    'drop-shadow(0 0 40px hsl(45 90% 55% / 0.8))',
+                    'drop-shadow(0 0 15px hsl(45 90% 55% / 0.4))',
                   ]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Logo size="lg" />
+                <motion.img
+                  src={brandCandle}
+                  alt="2026 Brand Candle"
+                  className="h-20 md:h-24 w-auto object-contain"
+                  animate={{ 
+                    y: [0, -5, 0],
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                />
               </motion.div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-2 mb-6">
+            <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6">
               <motion.div
                 animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Sparkles className="w-5 h-5 text-christmas-gold" />
+                <PartyPopper className="w-6 h-6 text-primary" />
               </motion.div>
-              <span className="text-christmas-gold font-display font-medium tracking-widest uppercase text-sm">
-                Holiday Collection 2026 • New Year Edition
+              <span className="text-primary font-display font-medium tracking-widest uppercase text-sm">
+                New Year Collection 2026 • Celebration Edition
               </span>
+              <motion.div
+                animate={{ rotate: [0, -15, 15, 0], scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              >
+                <Wine className="w-6 h-6 text-secondary" />
+              </motion.div>
             </motion.div>
             
             {/* Modern 3D Animated Main Title */}
@@ -110,7 +124,7 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
                   transition={{ duration: 5, repeat: Infinity }}
                   style={{ backgroundSize: '200% 200%', transformStyle: 'preserve-3d' }}
                 >
-                  <AnimatedText text="Merry Christmas" variant="3d" staggerDelay={5} />
+                  <AnimatedText text="New Year" variant="3d" staggerDelay={5} />
                 </motion.span>
               </motion.span>
               
@@ -125,30 +139,30 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg leading-relaxed"
             >
               Discover <motion.span 
-                className="text-christmas-gold font-semibold"
+                className="text-primary font-semibold text-shadow-gold"
                 animate={{ opacity: [1, 0.7, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
-              >1000+ magical gifts</motion.span> from around the world. 
+              >2026+ premium gifts</motion.span> for your celebration. 
               Pay with <span className="text-secondary font-semibold">ETH, BTC</span>, or card — 
-              celebrate the joy of giving this holiday season.
+              ring in the new year with style and elegance.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
               {/* 3D Gift Button */}
               <motion.a
                 href="#products"
-                className="btn-christmas inline-flex items-center justify-center gap-3 text-lg relative overflow-visible"
+                className="btn-newyear inline-flex items-center justify-center gap-3 text-lg relative overflow-visible"
                 whileHover={{ 
                   scale: 1.05, 
                   rotateY: 5,
-                  boxShadow: '0 0 50px hsl(43 96% 56% / 0.6)',
+                  boxShadow: '0 0 60px hsl(45 90% 55% / 0.6)',
                 }}
                 whileTap={{ scale: 0.98 }}
                 animate={{
                   boxShadow: [
-                    '0 0 20px hsl(0 72% 51% / 0.3)',
-                    '0 0 40px hsl(0 72% 51% / 0.5)',
-                    '0 0 20px hsl(0 72% 51% / 0.3)',
+                    '0 0 25px hsl(45 90% 55% / 0.3)',
+                    '0 0 50px hsl(45 90% 55% / 0.5)',
+                    '0 0 25px hsl(45 90% 55% / 0.3)',
                   ]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
@@ -168,13 +182,13 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
                   }}
                   style={{ transformStyle: 'preserve-3d' }}
                 />
-                Shop Presents
+                Shop Gifts
                 <ArrowDown className="w-4 h-4" />
               </motion.a>
               
               <motion.a
                 href="#categories"
-                className="btn-gold inline-flex items-center justify-center gap-2"
+                className="btn-champagne inline-flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05, rotateY: -5 }}
                 whileTap={{ scale: 0.98 }}
                 style={{ transformStyle: 'preserve-3d' }}
@@ -187,30 +201,33 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
             {/* Stats with 3D stagger animation */}
             <motion.div
               variants={itemVariants}
-              className="mt-16 grid grid-cols-4 gap-6"
+              className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6"
             >
               {stats.map((stat, index) => (
                 <motion.div 
                   key={index} 
-                  className="text-center sm:text-left"
+                  className="text-center sm:text-left glass-dark rounded-xl p-4"
                   initial={{ opacity: 0, y: 50, rotateX: -45 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
                   transition={{ delay: 2 + index * 0.2, type: 'spring', stiffness: 80 }}
-                  whileHover={{ scale: 1.15, y: -10, rotateY: 10 }}
+                  whileHover={{ scale: 1.1, y: -10, rotateY: 10 }}
                   style={{ transformStyle: 'preserve-3d' }}
                 >
-                  <motion.div 
-                    className="font-display text-2xl md:text-3xl font-bold text-christmas-gold"
-                    animate={{ 
-                      textShadow: [
-                        '0 0 10px hsl(43 96% 56% / 0.3), 0 10px 20px hsl(0 0% 0% / 0.2)',
-                        '0 0 25px hsl(43 96% 56% / 0.6), 0 15px 30px hsl(0 0% 0% / 0.3)',
-                        '0 0 10px hsl(43 96% 56% / 0.3), 0 10px 20px hsl(0 0% 0% / 0.2)',
-                      ]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                  >
-                    {stat.value}
+                  <motion.div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
+                    <stat.icon className="w-5 h-5 text-primary" />
+                    <motion.span 
+                      className="font-display text-2xl md:text-3xl font-bold text-primary"
+                      animate={{ 
+                        textShadow: [
+                          '0 0 10px hsl(45 90% 55% / 0.3)',
+                          '0 0 25px hsl(45 90% 55% / 0.6)',
+                          '0 0 10px hsl(45 90% 55% / 0.3)',
+                        ]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                    >
+                      {stat.value}
+                    </motion.span>
                   </motion.div>
                   <div className="text-xs text-muted-foreground font-body">{stat.label}</div>
                 </motion.div>
