@@ -90,7 +90,7 @@ export const AnimatedText = ({ text, className, variant = 'default', staggerDela
   </span>
 );
 
-// Modern 3D 2026 Number Animation
+// Modern 3D 2026 Number Animation - Updated for New Year theme
 export const Animated2026 = () => {
   const digits = ['2', '0', '2', '6'];
   
@@ -105,7 +105,7 @@ export const Animated2026 = () => {
       {digits.map((digit, i) => (
         <motion.span
           key={i}
-          className="inline-block text-christmas-gold relative"
+          className="inline-block text-primary relative"
           initial={{ 
             opacity: 0, 
             y: 200, 
@@ -133,7 +133,7 @@ export const Animated2026 = () => {
             rotateY: 25,
             rotateX: -15,
             z: 100,
-            color: 'hsl(0, 72%, 55%)',
+            color: 'hsl(280, 60%, 50%)',
             transition: { duration: 0.3, type: 'spring' }
           }}
           style={{ transformStyle: 'preserve-3d' }}
@@ -142,9 +142,9 @@ export const Animated2026 = () => {
             className="relative inline-block"
             animate={{ 
               textShadow: [
-                '0 0 20px hsl(43 96% 56% / 0.5), 0 0 40px hsl(43 96% 56% / 0.3), 0 20px 40px hsl(0 0% 0% / 0.3)',
-                '0 0 40px hsl(43 96% 56% / 0.8), 0 0 80px hsl(43 96% 56% / 0.5), 0 30px 60px hsl(0 0% 0% / 0.4)',
-                '0 0 20px hsl(43 96% 56% / 0.5), 0 0 40px hsl(43 96% 56% / 0.3), 0 20px 40px hsl(0 0% 0% / 0.3)',
+                '0 0 20px hsl(45 90% 55% / 0.5), 0 0 40px hsl(45 90% 55% / 0.3), 0 20px 40px hsl(0 0% 0% / 0.3)',
+                '0 0 40px hsl(45 90% 55% / 0.8), 0 0 80px hsl(45 90% 55% / 0.5), 0 30px 60px hsl(0 0% 0% / 0.4)',
+                '0 0 20px hsl(45 90% 55% / 0.5), 0 0 40px hsl(45 90% 55% / 0.3), 0 20px 40px hsl(0 0% 0% / 0.3)',
               ],
             }}
             transition={{ duration: 2, repeat: Infinity, delay: i * 0.25 }}
@@ -208,7 +208,7 @@ export const AnimatedWord = ({
             scale: 1.2,
             rotateY: 20,
             z: 30,
-            color: 'hsl(43 96% 56%)',
+            color: 'hsl(45 90% 55%)',
             transition: { duration: 0.2 }
           } : undefined}
           style={{ transformStyle: 'preserve-3d' }}
@@ -256,7 +256,7 @@ export const Animated3DTitle = ({ text, className }: { text: string; className?:
             rotateY: 30,
             rotateX: -15,
             z: 80,
-            textShadow: '0 0 30px hsl(43 96% 56% / 0.8)',
+            textShadow: '0 0 30px hsl(45 90% 55% / 0.8)',
             transition: { duration: 0.2 }
           }}
           style={{ transformStyle: 'preserve-3d' }}
