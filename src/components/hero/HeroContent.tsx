@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Wallet, Sparkles, PartyPopper, Wine } from 'lucide-react';
+import { ArrowDown, Wallet, Sparkles, PartyPopper, Wine, Gift, Zap, Truck } from 'lucide-react';
 import { AnimatedText, Animated2026, AnimatedWord } from './AnimatedLetters';
 import gift3D from '@/assets/gift-3d.png';
 import brandCandle from '@/assets/brand-candle-2026.png';
@@ -30,10 +30,10 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
   };
 
   const stats = [
-    { value: '2026+', label: 'Unique Gifts', icon: PartyPopper },
-    { value: 'ETH', label: 'Crypto Pay', icon: Wallet },
-    { value: 'Premium', label: 'Quality', icon: Wine },
-    { value: '24h', label: 'Fast Delivery', icon: Sparkles },
+    { value: '2026+', label: 'Unique Gifts', icon: Gift, color: 'from-amber-400 via-yellow-300 to-orange-500' },
+    { value: 'ETH', label: 'Crypto Pay', icon: Wallet, color: 'from-purple-400 via-pink-400 to-rose-500' },
+    { value: 'Premium', label: 'Quality', icon: Zap, color: 'from-cyan-400 via-blue-400 to-indigo-500' },
+    { value: '24h', label: 'Fast Delivery', icon: Truck, color: 'from-green-400 via-emerald-400 to-teal-500' },
   ];
 
   return (
@@ -41,7 +41,7 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
       <AnimatePresence>
         {showContent && (
           <motion.div 
-            className="max-w-2xl"
+            className="max-w-3xl"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -76,6 +76,7 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               </motion.div>
             </motion.div>
 
+            {/* Collection Badge */}
             <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6">
               <motion.div
                 animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.2, 1] }}
@@ -83,9 +84,19 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               >
                 <PartyPopper className="w-6 h-6 text-primary" />
               </motion.div>
-              <span className="text-primary font-display font-medium tracking-widest uppercase text-sm">
+              <motion.span 
+                className="font-display font-bold tracking-[0.2em] uppercase text-sm"
+                style={{
+                  background: 'linear-gradient(90deg, hsl(45 90% 55%) 0%, hsl(280 60% 60%) 50%, hsl(340 70% 55%) 100%)',
+                  backgroundSize: '200% auto',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+                animate={{ backgroundPosition: ['0% center', '200% center'] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+              >
                 New Year Collection 2026 • Celebration Edition
-              </span>
+              </motion.span>
               <motion.div
                 animate={{ rotate: [0, -15, 15, 0], scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
@@ -94,21 +105,45 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               </motion.div>
             </motion.div>
             
-            {/* Modern 3D Animated Main Title */}
+            {/* Main Title with 3D Rainbow Animation */}
             <motion.h1 
               variants={itemVariants}
-              className="font-heading text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight"
+              className="font-heading text-5xl md:text-7xl font-bold mb-6 leading-tight"
               style={{ perspective: '1500px', transformStyle: 'preserve-3d' }}
             >
+              {/* Happy */}
               <motion.span 
                 className="block"
                 initial={{ opacity: 0, x: -100, rotateY: -30 }}
                 animate={{ opacity: 1, x: 0, rotateY: 0 }}
                 transition={{ duration: 1, delay: 0.3, type: 'spring', stiffness: 60 }}
               >
-                <AnimatedWord word="Happy" className="font-display" delay={0.3} is3D />
+                <motion.span
+                  className="inline-block font-display font-black text-5xl md:text-6xl"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(45 90% 60%) 0%, hsl(35 90% 50%) 25%, hsl(280 70% 60%) 50%, hsl(340 80% 60%) 75%, hsl(45 90% 60%) 100%)',
+                    backgroundSize: '300% auto',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                  animate={{ 
+                    backgroundPosition: ['0% center', '300% center'],
+                    textShadow: [
+                      '0 0 30px hsl(45 90% 55% / 0.4)',
+                      '0 0 50px hsl(280 60% 50% / 0.6)',
+                      '0 0 30px hsl(45 90% 55% / 0.4)',
+                    ]
+                  }}
+                  transition={{ 
+                    backgroundPosition: { duration: 5, repeat: Infinity, ease: 'linear' },
+                    textShadow: { duration: 2, repeat: Infinity }
+                  }}
+                >
+                  <AnimatedWord word="Happy" delay={0.3} is3D />
+                </motion.span>
               </motion.span>
               
+              {/* New Year */}
               <motion.span 
                 className="block text-6xl md:text-8xl overflow-visible"
                 initial={{ opacity: 0 }}
@@ -117,38 +152,66 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 <motion.span
-                  className="inline-block text-gradient-modern"
-                  animate={{ 
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  className="inline-block font-elegant"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(280 80% 65%) 0%, hsl(340 90% 60%) 25%, hsl(45 100% 55%) 50%, hsl(180 80% 50%) 75%, hsl(280 80% 65%) 100%)',
+                    backgroundSize: '400% auto',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
                   }}
-                  transition={{ duration: 5, repeat: Infinity }}
-                  style={{ backgroundSize: '200% 200%', transformStyle: 'preserve-3d' }}
+                  animate={{ 
+                    backgroundPosition: ['0% center', '400% center'],
+                  }}
+                  transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
                 >
                   <AnimatedText text="New Year" variant="3d" staggerDelay={5} />
                 </motion.span>
               </motion.span>
               
-              {/* Modern 3D 2026 Animation */}
+              {/* 2026 */}
               <motion.span className="block" style={{ transformStyle: 'preserve-3d' }}>
                 <Animated2026 />
               </motion.span>
             </motion.h1>
 
+            {/* Description */}
             <motion.p 
               variants={itemVariants}
-              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg leading-relaxed"
+              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg leading-relaxed font-body"
             >
-              Discover <motion.span 
-                className="text-primary font-semibold text-shadow-gold"
-                animate={{ opacity: [1, 0.7, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >2026+ premium gifts</motion.span> for your celebration. 
-              Pay with <span className="text-secondary font-semibold">ETH, BTC</span>, or card — 
-              ring in the new year with style and elegance.
+              Discover{' '}
+              <motion.span 
+                className="font-bold"
+                style={{
+                  background: 'linear-gradient(90deg, hsl(45 90% 55%), hsl(40 60% 70%), hsl(45 90% 55%))',
+                  backgroundSize: '200% auto',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+                animate={{ backgroundPosition: ['0% center', '200% center'] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                2026+ premium gifts
+              </motion.span>{' '}
+              for your celebration. Pay with{' '}
+              <motion.span 
+                className="font-bold"
+                style={{
+                  background: 'linear-gradient(90deg, hsl(280 60% 50%), hsl(200 90% 60%), hsl(280 60% 50%))',
+                  backgroundSize: '200% auto',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+                animate={{ backgroundPosition: ['0% center', '200% center'] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              >
+                ETH, BTC
+              </motion.span>
+              , or card — ring in the new year with style and elegance.
             </motion.p>
 
+            {/* CTA Buttons */}
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
-              {/* 3D Gift Button */}
               <motion.a
                 href="#products"
                 className="btn-newyear inline-flex items-center justify-center gap-3 text-lg relative overflow-visible"
@@ -198,38 +261,63 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               </motion.a>
             </motion.div>
 
-            {/* Stats with 3D stagger animation */}
+            {/* Stats with 3D Rainbow Colors */}
             <motion.div
               variants={itemVariants}
-              className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6"
+              className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4"
             >
               {stats.map((stat, index) => (
                 <motion.div 
                   key={index} 
-                  className="text-center sm:text-left glass-dark rounded-xl p-4"
+                  className="text-center glass-dark rounded-2xl p-5 border border-border/30"
                   initial={{ opacity: 0, y: 50, rotateX: -45 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
                   transition={{ delay: 2 + index * 0.2, type: 'spring', stiffness: 80 }}
-                  whileHover={{ scale: 1.1, y: -10, rotateY: 10 }}
+                  whileHover={{ 
+                    scale: 1.1, 
+                    y: -10, 
+                    rotateY: 10,
+                    boxShadow: '0 20px 40px hsl(0 0% 0% / 0.3)',
+                  }}
                   style={{ transformStyle: 'preserve-3d' }}
                 >
-                  <motion.div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
-                    <stat.icon className="w-5 h-5 text-primary" />
+                  <motion.div className="flex flex-col items-center gap-2">
+                    <motion.div
+                      className={`p-2 rounded-xl bg-gradient-to-r ${stat.color}`}
+                      animate={{
+                        boxShadow: [
+                          '0 0 15px hsl(45 90% 55% / 0.3)',
+                          '0 0 30px hsl(280 60% 50% / 0.5)',
+                          '0 0 15px hsl(45 90% 55% / 0.3)',
+                        ]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                    >
+                      <stat.icon className="w-5 h-5 text-background" />
+                    </motion.div>
                     <motion.span 
-                      className="font-display text-2xl md:text-3xl font-bold text-primary"
+                      className="font-display text-2xl md:text-3xl font-black tracking-wider"
+                      style={{
+                        background: `linear-gradient(135deg, ${stat.color.includes('amber') ? 'hsl(45 90% 55%), hsl(35 80% 50%)' : 
+                          stat.color.includes('purple') ? 'hsl(280 60% 60%), hsl(340 70% 55%)' :
+                          stat.color.includes('cyan') ? 'hsl(180 80% 50%), hsl(200 90% 60%)' :
+                          'hsl(145 80% 50%), hsl(160 70% 45%)'})`,
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                      }}
                       animate={{ 
                         textShadow: [
-                          '0 0 10px hsl(45 90% 55% / 0.3)',
-                          '0 0 25px hsl(45 90% 55% / 0.6)',
-                          '0 0 10px hsl(45 90% 55% / 0.3)',
+                          '0 0 15px hsl(45 90% 55% / 0.4)',
+                          '0 0 30px hsl(280 60% 50% / 0.6)',
+                          '0 0 15px hsl(45 90% 55% / 0.4)',
                         ]
                       }}
                       transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
                     >
                       {stat.value}
                     </motion.span>
+                    <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">{stat.label}</span>
                   </motion.div>
-                  <div className="text-xs text-muted-foreground font-body">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
