@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowDown, Wallet, Sparkles, PartyPopper, Wine, Gift, Zap, Truck } from 'lucide-react';
-import { AnimatedText, Animated2026, AnimatedWord } from './AnimatedLetters';
 import gift3D from '@/assets/gift-3d.png';
 import brandCandle from '@/assets/brand-candle-2026.png';
 
@@ -162,9 +161,29 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
                 </motion.span>
               </motion.span>
               
-              {/* 2026 */}
-              <motion.span className="block" style={{ transformStyle: 'preserve-3d' }}>
-                <Animated2026 />
+              {/* 2026 - Large Visible Numbers */}
+              <motion.span 
+                className="block mt-2"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.9, duration: 0.8, type: 'spring' }}
+              >
+                <motion.span
+                  className="inline-block font-display text-7xl md:text-9xl font-black tracking-wider"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(45 100% 60%) 0%, hsl(40 90% 50%) 25%, hsl(280 70% 55%) 50%, hsl(340 80% 55%) 75%, hsl(45 100% 60%) 100%)',
+                    backgroundSize: '300% auto',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    textShadow: '0 0 60px hsl(45 90% 55% / 0.4)',
+                  }}
+                  animate={{ 
+                    backgroundPosition: ['0% center', '300% center'],
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                >
+                  2026
+                </motion.span>
               </motion.span>
             </motion.h1>
 
@@ -255,19 +274,19 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               </motion.a>
             </motion.div>
 
-            {/* Stats with 3D Rainbow Colors - Centered */}
+            {/* Stats with 3D Rainbow Colors - Auto Width Centered */}
             <motion.div
               variants={itemVariants}
-              className="mt-16 flex justify-center"
+              className="mt-16 w-full"
             >
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
+              <div className="flex flex-wrap justify-center gap-4">
                 {stats.map((stat, index) => (
                   <motion.div 
                     key={index} 
-                    className="text-center glass-dark rounded-2xl p-5 border border-border/30"
+                    className="text-center glass-dark rounded-2xl p-5 border border-border/30 w-auto min-w-[140px]"
                     initial={{ opacity: 0, y: 50, rotateX: -45 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                    transition={{ delay: 2 + index * 0.2, type: 'spring', stiffness: 80 }}
+                    transition={{ delay: 1.5 + index * 0.15, type: 'spring', stiffness: 80 }}
                     whileHover={{ 
                       scale: 1.1, 
                       y: -10, 
