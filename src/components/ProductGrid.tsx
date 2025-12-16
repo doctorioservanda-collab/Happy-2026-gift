@@ -39,11 +39,11 @@ export const ProductGrid = ({ products, onAddToCart }: ProductGridProps) => {
           className="text-center mb-12"
         >
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Magical <span className="text-gradient-christmas">Gifts</span>
+            Premium <span className="text-gradient-christmas">New Year Gifts</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explore our curated collection of {products.length}+ Christmas presents, 
-            each one handpicked to bring joy and wonder.
+            Explore our curated collection of {products.length}+ celebration presents, 
+            each one handpicked for Happy New Year 2026.
           </p>
         </motion.div>
 
