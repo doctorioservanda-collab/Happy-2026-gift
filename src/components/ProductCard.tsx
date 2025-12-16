@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingCart, Star, Sparkles } from 'lucide-react';
+import { ShoppingCart, Star, Sparkles, Gift } from 'lucide-react';
 import { Product } from '@/types/product';
 import { Button } from '@/components/ui/button';
 
@@ -9,7 +10,12 @@ interface ProductCardProps {
   index: number;
 }
 
+// Fallback image when product image fails to load
+const fallbackImage = 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&h=400&fit=crop&q=80';
+
 export const ProductCard = ({ product, onAddToCart, index }: ProductCardProps) => {
+  const [imgError, setImgError] = useState(false);
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -19,12 +25,19 @@ export const ProductCard = ({ product, onAddToCart, index }: ProductCardProps) =
     >
       {/* Image */}
       <div className="relative aspect-square overflow-hidden bg-muted">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          loading="lazy"
-        />
+        {imgError ? (
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
+            <Gift className="w-16 h-16 text-christmas-gold" />
+          </div>
+        ) : (
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            loading="lazy"
+            onError={() => setImgError(true)}
+          />
+        )}
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
