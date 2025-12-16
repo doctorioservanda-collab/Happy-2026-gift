@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Gift } from 'lucide-react';
 import gift3D from '@/assets/gift-3d.png';
 
 import giftsImg from '@/assets/categories/gifts.jpg';
@@ -12,14 +12,14 @@ import jewelryImg from '@/assets/categories/jewelry.jpg';
 import sportsImg from '@/assets/categories/sports.jpg';
 
 const categories = [
-  { name: 'Holiday Gifts', image: giftsImg, count: 250 },
-  { name: 'Electronics', image: electronicsImg, count: 180 },
-  { name: 'Fashion', image: fashionImg, count: 320 },
-  { name: 'Home & Living', image: homeImg, count: 145 },
-  { name: 'Beauty', image: beautyImg, count: 95 },
-  { name: 'Books & Media', image: booksImg, count: 210 },
-  { name: 'Jewelry', image: jewelryImg, count: 85 },
-  { name: 'Sports', image: sportsImg, count: 120 },
+  { name: 'New Year Gifts', image: giftsImg, count: 250, category: 'Premium Gifts' },
+  { name: 'Electronics', image: electronicsImg, count: 180, category: 'Electronics' },
+  { name: 'Fashion', image: fashionImg, count: 320, category: 'Fashion & Luxury' },
+  { name: 'Home & Living', image: homeImg, count: 145, category: 'Home & Decor' },
+  { name: 'Beauty', image: beautyImg, count: 95, category: 'Beauty & Perfume' },
+  { name: 'Books & Media', image: booksImg, count: 210, category: 'Art & Books' },
+  { name: 'Jewelry', image: jewelryImg, count: 85, category: 'Jewelry & Watches' },
+  { name: 'Sports', image: sportsImg, count: 120, category: 'Fitness & Sports' },
 ];
 
 export const Categories = () => {
@@ -99,6 +99,12 @@ export const Categories = () => {
             <motion.span
               className="inline-block"
               whileHover={{ scale: 1.05, rotateY: 5 }}
+              style={{
+                background: 'linear-gradient(135deg, hsl(45 90% 55%) 0%, hsl(280 60% 60%) 50%, hsl(340 70% 55%) 100%)',
+                backgroundSize: '200% auto',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
             >
               Discover Your Perfect Gift
             </motion.span>
@@ -111,7 +117,7 @@ export const Categories = () => {
             transition={{ delay: 0.4 }}
           >
             Find the perfect gift in our carefully organized categories — 
-            curated for <span className="text-christmas-gold font-semibold">Merry Christmas 2026</span>
+            curated for <span className="text-christmas-gold font-semibold">Happy New Year 2026</span>
           </motion.p>
         </motion.div>
 
@@ -154,14 +160,21 @@ export const Categories = () => {
                 <p className="text-sm text-muted-foreground group-hover:text-primary-foreground/80 transition-colors">
                   {category.count} products
                 </p>
-                <motion.div 
+                <motion.a 
+                  href={`#products`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const productsSection = document.getElementById('products');
+                    if (productsSection) {
+                      productsSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                   className="flex items-center gap-2 mt-3 text-christmas-gold group-hover:text-primary-foreground transition-colors"
-                  initial={{ x: 0 }}
                   whileHover={{ x: 5 }}
                 >
                   <span className="text-sm font-medium">Explore</span>
                   <ArrowRight className="w-4 h-4" />
-                </motion.div>
+                </motion.a>
               </div>
             </motion.div>
           ))}
@@ -212,14 +225,58 @@ export const Categories = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <h3 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-                ✨ New Year Special 2026 ✨
-              </h3>
+              {/* 3D Animated Title */}
+              <motion.div
+                className="flex items-center justify-center gap-3 mb-4"
+                style={{ perspective: '1000px' }}
+              >
+                <motion.span
+                  className="text-3xl"
+                  animate={{ 
+                    rotateY: [0, 360],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  ✨
+                </motion.span>
+                <motion.h3 
+                  className="font-display text-3xl md:text-5xl font-black"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(45 100% 70%) 0%, hsl(45 90% 55%) 25%, hsl(280 80% 65%) 50%, hsl(340 90% 60%) 75%, hsl(45 100% 70%) 100%)',
+                    backgroundSize: '400% auto',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    textShadow: '0 0 40px hsl(45 90% 55% / 0.3)',
+                  }}
+                  animate={{ 
+                    backgroundPosition: ['0% center', '400% center'],
+                    rotateX: [0, 5, 0, -5, 0],
+                  }}
+                  transition={{ 
+                    backgroundPosition: { duration: 4, repeat: Infinity, ease: 'linear' },
+                    rotateX: { duration: 4, repeat: Infinity }
+                  }}
+                >
+                  New Year Special 2026
+                </motion.h3>
+                <motion.span
+                  className="text-3xl"
+                  animate={{ 
+                    rotateY: [360, 0],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  ✨
+                </motion.span>
+              </motion.div>
               <p className="text-primary-foreground/90 text-lg mb-6 max-w-xl mx-auto">
-                Exclusive holiday collection with worldwide shipping. 
+                Exclusive celebration collection with worldwide shipping. 
                 Pay with crypto and get 10% extra rewards!
               </p>
-              <motion.button
+              <motion.a
+                href="#products"
                 className="bg-background text-foreground px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2 hover:bg-background/90 transition-colors"
                 whileHover={{ scale: 1.05, rotateY: 5 }}
                 whileTap={{ scale: 0.98 }}
@@ -234,7 +291,7 @@ export const Categories = () => {
                 />
                 Shop the Collection
                 <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              </motion.a>
             </motion.div>
           </div>
         </motion.div>
