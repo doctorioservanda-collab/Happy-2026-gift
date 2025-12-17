@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Wallet, Sparkles, PartyPopper, Wine, Gift, Zap, Truck } from 'lucide-react';
+import { ArrowDown, Wallet, PartyPopper, Wine } from 'lucide-react';
 import gift3D from '@/assets/gift-3d.png';
 import brandCandle from '@/assets/brand-candle-2026.png';
 
@@ -28,12 +28,6 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
     },
   };
 
-  const stats = [
-    { value: '2026+', label: 'Unique Gifts', icon: Gift, color: 'from-amber-400 via-yellow-300 to-orange-500' },
-    { value: 'ETH', label: 'Crypto Pay', icon: Wallet, color: 'from-purple-400 via-pink-400 to-rose-500' },
-    { value: 'Premium', label: 'Quality', icon: Zap, color: 'from-cyan-400 via-blue-400 to-indigo-500' },
-    { value: '24h', label: 'Fast Delivery', icon: Truck, color: 'from-green-400 via-emerald-400 to-teal-500' },
-  ];
 
   return (
     <div className="container mx-auto px-4 relative z-10 pt-20">
@@ -274,68 +268,6 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               </motion.a>
             </motion.div>
 
-            {/* Stats with 3D Rainbow Colors - Auto Width Centered */}
-            <motion.div
-              variants={itemVariants}
-              className="mt-16 w-full"
-            >
-              <div className="flex flex-wrap justify-center gap-4">
-                {stats.map((stat, index) => (
-                  <motion.div 
-                    key={index} 
-                    className="text-center glass-dark rounded-2xl p-5 border border-border/30 w-auto min-w-[140px]"
-                    initial={{ opacity: 0, y: 50, rotateX: -45 }}
-                    animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                    transition={{ delay: 1.5 + index * 0.15, type: 'spring', stiffness: 80 }}
-                    whileHover={{ 
-                      scale: 1.1, 
-                      y: -10, 
-                      rotateY: 10,
-                      boxShadow: '0 20px 40px hsl(0 0% 0% / 0.3)',
-                    }}
-                    style={{ transformStyle: 'preserve-3d' }}
-                  >
-                    <motion.div className="flex flex-col items-center gap-2">
-                      <motion.div
-                        className={`p-3 rounded-xl bg-gradient-to-r ${stat.color}`}
-                        animate={{
-                          boxShadow: [
-                            '0 0 15px hsl(45 90% 55% / 0.3)',
-                            '0 0 30px hsl(280 60% 50% / 0.5)',
-                            '0 0 15px hsl(45 90% 55% / 0.3)',
-                          ]
-                        }}
-                        transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                      >
-                        <stat.icon className="w-6 h-6 text-background" />
-                      </motion.div>
-                      <motion.span 
-                        className="font-display text-2xl md:text-3xl font-black tracking-wider"
-                        style={{
-                          background: `linear-gradient(135deg, ${stat.color.includes('amber') ? 'hsl(45 90% 55%), hsl(35 80% 50%)' : 
-                            stat.color.includes('purple') ? 'hsl(280 60% 60%), hsl(340 70% 55%)' :
-                            stat.color.includes('cyan') ? 'hsl(180 80% 50%), hsl(200 90% 60%)' :
-                            'hsl(145 80% 50%), hsl(160 70% 45%)'})`,
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                        }}
-                        animate={{ 
-                          textShadow: [
-                            '0 0 15px hsl(45 90% 55% / 0.4)',
-                            '0 0 30px hsl(280 60% 50% / 0.6)',
-                            '0 0 15px hsl(45 90% 55% / 0.4)',
-                          ]
-                        }}
-                        transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                      >
-                        {stat.value}
-                      </motion.span>
-                      <span className="text-xs text-muted-foreground font-display uppercase tracking-widest font-semibold">{stat.label}</span>
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -2,73 +2,63 @@ import { Product } from '@/types/product';
 
 // High-quality product images for New Year 2026 gifts - using reliable Unsplash sources
 const productImages = [
-  // Champagne & Wine
-  'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&h=400&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=400&h=400&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=400&h=400&fit=crop&q=80',
-  // Party & Celebration
-  'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=400&h=400&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1482575832494-771f74bf6857?w=400&h=400&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=400&fit=crop&q=80',
-  // Jewelry & Watches
+  // Champagne & Wine (product only)
+  'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=400&h=400&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1585553616435-2dc0a54e271d?w=400&h=400&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1568430462989-44163eb1752f?w=400&h=400&fit=crop&q=80',
+  // Jewelry & Watches (product only)
   'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=400&fit=crop&q=80',
-  // Electronics
+  // Electronics (product only)
   'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=400&fit=crop&q=80',
-  // Fashion & Luxury
+  // Fashion Accessories (product only)
   'https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=400&fit=crop&q=80',
-  // Home & Decor
+  // Home & Decor (product only)
   'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1543332164-6e82f355badc?w=400&h=400&fit=crop&q=80',
-  // Beauty & Perfume
+  // Beauty & Perfume (product only)
   'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=400&h=400&fit=crop&q=80',
-  // Gourmet Food
-  'https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=400&h=400&fit=crop&q=80',
+  // Gourmet Food (product only)
   'https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400&h=400&fit=crop&q=80',
-  // Coffee & Tea
+  'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400&h=400&fit=crop&q=80',
+  // Coffee & Tea (product only)
   'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&q=80',
-  // Tech Gadgets
+  // Tech Gadgets (product only)
   'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=400&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=400&fit=crop&q=80',
-  // Travel & Luggage
+  'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=400&h=400&fit=crop&q=80',
+  // Travel & Luggage (product only)
   'https://images.unsplash.com/photo-1553062407-98eeb64c6a45?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1581553680321-4fffae59fccd?w=400&h=400&fit=crop&q=80',
-  // Skincare & Wellness
+  // Skincare (product only)
   'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1570194065650-d99fb4b38b17?w=400&h=400&fit=crop&q=80',
-  // Art & Books
+  'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop&q=80',
+  // Art & Books (product only)
   'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&h=400&fit=crop&q=80',
-  // Music & Entertainment
+  // Music (product only)
   'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&h=400&fit=crop&q=80',
-  // Fitness & Sports
-  'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=400&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=400&fit=crop&q=80',
-  // Premium Accessories
+  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&q=80',
+  // Fitness (product only)
+  'https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=400&h=400&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1576678927484-cc907957088c?w=400&h=400&fit=crop&q=80',
+  // Premium Accessories (product only)
   'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&q=80',
-  // Candles & Aromatherapy
+  // Candles (product only)
   'https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1602607105268-73a6a8eb0873?w=400&h=400&fit=crop&q=80',
-  // Kitchen & Dining
+  // Kitchen (product only)
   'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1585515320310-259814833e62?w=400&h=400&fit=crop&q=80',
-  // Winter Fashion
-  'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400&h=400&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=400&h=400&fit=crop&q=80',
-  // Pet Gifts
-  'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=400&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=400&fit=crop&q=80',
-  // Premium Gifts
+  // Gift Boxes (product only)
   'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&h=400&fit=crop&q=80',
   'https://images.unsplash.com/photo-1512909006721-3d6018887383?w=400&h=400&fit=crop&q=80',
 ];
