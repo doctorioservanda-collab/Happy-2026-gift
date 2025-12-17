@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 240 10% 4%;
-    --foreground: 45 30% 96%;
+    --background: 45 30% 97%;
+    --foreground: 240 10% 15%;
 
-    --card: 240 8% 8%;
-    --card-foreground: 45 30% 96%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
 
-    --popover: 240 8% 8%;
-    --popover-foreground: 45 30% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
 
-    --primary: 45 90% 55%;
-    --primary-foreground: 240 10% 4%;
+    --primary: 45 90% 50%;
+    --primary-foreground: 240 10% 10%;
 
-    --secondary: 280 60% 50%;
+    --secondary: 340 70% 55%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 8% 15%;
-    --muted-foreground: 45 10% 65%;
+    --muted: 45 20% 92%;
+    --muted-foreground: 240 10% 40%;
 
-    --accent: 0 70% 55%;
+    --accent: 280 60% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 8% 18%;
-    --input: 240 8% 18%;
-    --ring: 45 90% 55%;
+    --border: 45 20% 85%;
+    --input: 45 20% 85%;
+    --ring: 45 90% 50%;
 
     --radius: 0.75rem;
 
@@ -41,7 +41,7 @@
     --newyear-champagne: 40 60% 70%;
     --newyear-purple: 280 60% 50%;
     --newyear-rose: 340 70% 55%;
-    --newyear-midnight: 240 30% 8%;
+    --newyear-midnight: 240 30% 20%;
     --newyear-silver: 220 15% 80%;
     --firework-red: 0 80% 55%;
     --firework-blue: 200 90% 60%;
@@ -51,11 +51,11 @@
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(45 90% 55%) 0%, hsl(35 80% 45%) 50%, hsl(45 90% 55%) 100%);
     --gradient-champagne: linear-gradient(135deg, hsl(40 60% 70%) 0%, hsl(45 90% 55%) 50%, hsl(40 60% 70%) 100%);
-    --gradient-midnight: linear-gradient(180deg, hsl(240 30% 8%) 0%, hsl(250 40% 15%) 100%);
+    --gradient-midnight: linear-gradient(180deg, hsl(45 30% 97%) 0%, hsl(45 25% 94%) 100%);
     --gradient-firework: linear-gradient(135deg, hsl(0 80% 55%) 0%, hsl(280 60% 50%) 50%, hsl(200 90% 60%) 100%);
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
     --shadow-glow: 0 0 60px hsl(45 90% 55% / 0.3);
     --shadow-gold: 0 4px 30px hsl(45 90% 55% / 0.4);
     --shadow-firework: 0 0 80px hsl(280 60% 50% / 0.4);
@@ -68,32 +68,32 @@
   }
 
   .dark {
-    --background: 240 10% 4%;
+    --background: 240 15% 8%;
     --foreground: 45 30% 96%;
 
-    --card: 240 8% 8%;
+    --card: 240 12% 12%;
     --card-foreground: 45 30% 96%;
 
-    --popover: 240 8% 8%;
+    --popover: 240 12% 12%;
     --popover-foreground: 45 30% 96%;
 
     --primary: 45 90% 55%;
     --primary-foreground: 240 10% 4%;
 
-    --secondary: 280 60% 50%;
+    --secondary: 340 70% 55%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 8% 15%;
-    --muted-foreground: 45 10% 65%;
+    --muted: 240 10% 18%;
+    --muted-foreground: 45 15% 65%;
 
-    --accent: 0 70% 55%;
+    --accent: 280 60% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 8% 18%;
-    --input: 240 8% 18%;
+    --border: 240 10% 22%;
+    --input: 240 10% 22%;
     --ring: 45 90% 55%;
   }
 }
@@ -165,7 +165,7 @@
   }
 
   .glass-dark {
-    @apply backdrop-blur-xl bg-background/60 border border-border/50;
+    @apply backdrop-blur-xl bg-card/80 border border-border/50 shadow-lg;
   }
 }
 

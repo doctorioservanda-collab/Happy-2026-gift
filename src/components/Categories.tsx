@@ -24,7 +24,7 @@ const categories = [
 
 export const Categories = () => {
   return (
-    <section id="categories" className="py-20 bg-gradient-to-b from-background to-muted/30">
+    <section id="categories" className="py-20 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto px-4">
         {/* 3D Animated Section Header */}
         <motion.div 
@@ -225,21 +225,40 @@ export const Categories = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              {/* 3D Animated Title */}
+              {/* 3D Animated Title with 3D Sparkle Logos */}
               <motion.div
-                className="flex items-center justify-center gap-3 mb-4"
-                style={{ perspective: '1000px' }}
+                className="flex items-center justify-center gap-4 mb-4"
+                style={{ perspective: '1500px' }}
               >
-                <motion.span
-                  className="text-3xl"
+                {/* Left 3D Sparkle Logo */}
+                <motion.div
+                  className="relative"
+                  style={{ transformStyle: 'preserve-3d' }}
                   animate={{ 
                     rotateY: [0, 360],
-                    scale: [1, 1.2, 1]
+                    rotateX: [0, 15, 0, -15, 0],
+                    scale: [1, 1.3, 1]
                   }}
-                  transition={{ duration: 3, repeat: Infinity }}
+                  transition={{ duration: 4, repeat: Infinity }}
                 >
-                  ✨
-                </motion.span>
+                  <motion.span
+                    className="text-4xl md:text-5xl block"
+                    style={{
+                      filter: 'drop-shadow(0 0 20px hsl(45 90% 55%)) drop-shadow(0 0 40px hsl(280 60% 50%))',
+                    }}
+                    animate={{
+                      filter: [
+                        'drop-shadow(0 0 20px hsl(45 90% 55%)) drop-shadow(0 0 40px hsl(280 60% 50%))',
+                        'drop-shadow(0 0 40px hsl(45 90% 70%)) drop-shadow(0 0 60px hsl(340 70% 55%))',
+                        'drop-shadow(0 0 20px hsl(45 90% 55%)) drop-shadow(0 0 40px hsl(280 60% 50%))',
+                      ]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    ✨
+                  </motion.span>
+                </motion.div>
+                
                 <motion.h3 
                   className="font-display text-3xl md:text-5xl font-black"
                   style={{
@@ -247,29 +266,54 @@ export const Categories = () => {
                     backgroundSize: '400% auto',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    textShadow: '0 0 40px hsl(45 90% 55% / 0.3)',
+                    transformStyle: 'preserve-3d',
                   }}
                   animate={{ 
                     backgroundPosition: ['0% center', '400% center'],
-                    rotateX: [0, 5, 0, -5, 0],
+                    rotateX: [0, 8, 0, -8, 0],
+                    textShadow: [
+                      '0 0 40px hsl(45 90% 55% / 0.5)',
+                      '0 0 60px hsl(280 60% 50% / 0.7)',
+                      '0 0 40px hsl(45 90% 55% / 0.5)',
+                    ]
                   }}
                   transition={{ 
                     backgroundPosition: { duration: 4, repeat: Infinity, ease: 'linear' },
-                    rotateX: { duration: 4, repeat: Infinity }
+                    rotateX: { duration: 5, repeat: Infinity },
+                    textShadow: { duration: 2, repeat: Infinity }
                   }}
                 >
                   New Year Special 2026
                 </motion.h3>
-                <motion.span
-                  className="text-3xl"
+                
+                {/* Right 3D Sparkle Logo */}
+                <motion.div
+                  className="relative"
+                  style={{ transformStyle: 'preserve-3d' }}
                   animate={{ 
                     rotateY: [360, 0],
-                    scale: [1, 1.2, 1]
+                    rotateX: [0, -15, 0, 15, 0],
+                    scale: [1, 1.3, 1]
                   }}
-                  transition={{ duration: 3, repeat: Infinity }}
+                  transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
                 >
-                  ✨
-                </motion.span>
+                  <motion.span
+                    className="text-4xl md:text-5xl block"
+                    style={{
+                      filter: 'drop-shadow(0 0 20px hsl(45 90% 55%)) drop-shadow(0 0 40px hsl(280 60% 50%))',
+                    }}
+                    animate={{
+                      filter: [
+                        'drop-shadow(0 0 20px hsl(280 60% 50%)) drop-shadow(0 0 40px hsl(340 70% 55%))',
+                        'drop-shadow(0 0 40px hsl(45 90% 70%)) drop-shadow(0 0 60px hsl(45 90% 55%))',
+                        'drop-shadow(0 0 20px hsl(280 60% 50%)) drop-shadow(0 0 40px hsl(340 70% 55%))',
+                      ]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                  >
+                    ✨
+                  </motion.span>
+                </motion.div>
               </motion.div>
               <p className="text-primary-foreground/90 text-lg mb-6 max-w-xl mx-auto">
                 Exclusive celebration collection with worldwide shipping. 
