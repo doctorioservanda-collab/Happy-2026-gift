@@ -5,6 +5,7 @@ import { Categories } from '@/components/Categories';
 import { ProductGrid } from '@/components/ProductGrid';
 import { Cart } from '@/components/Cart';
 import { Footer } from '@/components/Footer';
+import { WelcomePopup } from '@/components/WelcomePopup';
 import { useCart } from '@/hooks/useCart';
 import { products } from '@/data/products';
 
@@ -13,6 +14,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <WelcomePopup />
       <Snowfall />
       <Header cartCount={cart.itemCount} onCartClick={() => cart.setIsOpen(true)} />
       <main>
