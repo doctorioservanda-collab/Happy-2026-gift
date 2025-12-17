@@ -100,81 +100,51 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               </motion.div>
             </motion.div>
             
-            {/* Main Title with 3D Rainbow Animation */}
+            {/* Main Title - Compact & Beautiful */}
             <motion.h1 
               variants={itemVariants}
-              className="font-heading text-5xl md:text-7xl font-bold mb-6 leading-tight"
-              style={{ perspective: '1500px', transformStyle: 'preserve-3d' }}
+              className="font-elegant text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-wide"
+              style={{ perspective: '1000px' }}
             >
-              {/* Happy */}
               <motion.span 
                 className="block"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <motion.span
-                  className="inline-block font-display font-black text-5xl md:text-6xl"
+                  className="inline-block"
                   style={{
-                    background: 'linear-gradient(135deg, hsl(45 90% 60%) 0%, hsl(35 90% 50%) 25%, hsl(280 70% 60%) 50%, hsl(340 80% 60%) 75%, hsl(45 90% 60%) 100%)',
-                    backgroundSize: '300% auto',
+                    background: 'linear-gradient(90deg, hsl(45 100% 65%) 0%, hsl(280 70% 60%) 50%, hsl(340 80% 60%) 100%)',
+                    backgroundSize: '200% auto',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
-                  animate={{ 
-                    backgroundPosition: ['0% center', '300% center'],
-                  }}
-                  transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
-                >
-                  Happy
-                </motion.span>
-              </motion.span>
-              
-              {/* New Year */}
-              <motion.span 
-                className="block text-6xl md:text-8xl overflow-visible"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.7 }}
-                style={{ transformStyle: 'preserve-3d' }}
-              >
-                <motion.span
-                  className="inline-block font-elegant"
-                  style={{
-                    background: 'linear-gradient(135deg, hsl(280 80% 65%) 0%, hsl(340 90% 60%) 25%, hsl(45 100% 55%) 50%, hsl(180 80% 50%) 75%, hsl(280 80% 65%) 100%)',
-                    backgroundSize: '400% auto',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                  animate={{ 
-                    backgroundPosition: ['0% center', '400% center'],
-                  }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-                >
-                  New Year
-                </motion.span>
-              </motion.span>
-              
-              {/* 2026 - Large Visible Numbers */}
-              <motion.span 
-                className="block mt-2"
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.9, duration: 0.8, type: 'spring' }}
-              >
-                <motion.span
-                  className="inline-block font-display text-7xl md:text-9xl font-black tracking-wider"
-                  style={{
-                    background: 'linear-gradient(135deg, hsl(45 100% 60%) 0%, hsl(40 90% 50%) 25%, hsl(280 70% 55%) 50%, hsl(340 80% 55%) 75%, hsl(45 100% 60%) 100%)',
-                    backgroundSize: '300% auto',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    textShadow: '0 0 60px hsl(45 90% 55% / 0.4)',
-                  }}
-                  animate={{ 
-                    backgroundPosition: ['0% center', '300% center'],
-                  }}
+                  animate={{ backgroundPosition: ['0% center', '200% center'] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                >
+                  Happy New Year
+                </motion.span>
+              </motion.span>
+              
+              {/* 2026 */}
+              <motion.span 
+                className="block mt-1"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5, duration: 0.6, type: 'spring' }}
+              >
+                <motion.span
+                  className="inline-block font-display text-5xl md:text-7xl font-black tracking-widest"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(45 100% 60%) 0%, hsl(280 70% 55%) 50%, hsl(45 100% 60%) 100%)',
+                    backgroundSize: '300% auto',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    textShadow: '0 0 40px hsl(45 90% 55% / 0.3)',
+                  }}
+                  animate={{ backgroundPosition: ['0% center', '300% center'] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
                 >
                   2026
                 </motion.span>
@@ -217,54 +187,26 @@ export const HeroContent = ({ showContent }: HeroContentProps) => {
               , or card — ring in the new year with style and elegance.
             </motion.p>
 
-            {/* CTA Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
+            {/* Single CTA Button */}
+            <motion.div variants={itemVariants}>
               <motion.a
                 href="#products"
-                className="btn-newyear inline-flex items-center justify-center gap-3 text-lg relative overflow-visible"
+                className="btn-newyear inline-flex items-center justify-center gap-3 text-lg"
                 whileHover={{ 
                   scale: 1.05, 
-                  rotateY: 5,
                   boxShadow: '0 0 60px hsl(45 90% 55% / 0.6)',
                 }}
                 whileTap={{ scale: 0.98 }}
-                animate={{
-                  boxShadow: [
-                    '0 0 25px hsl(45 90% 55% / 0.3)',
-                    '0 0 50px hsl(45 90% 55% / 0.5)',
-                    '0 0 25px hsl(45 90% 55% / 0.3)',
-                  ]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-                style={{ transformStyle: 'preserve-3d' }}
               >
                 <motion.img
                   src={gift3D}
                   alt="Gift"
                   className="w-8 h-8 object-contain"
-                  animate={{ 
-                    rotateY: [0, 360],
-                    scale: [1, 1.1, 1]
-                  }}
-                  transition={{ 
-                    rotateY: { duration: 4, repeat: Infinity, ease: 'linear' },
-                    scale: { duration: 2, repeat: Infinity }
-                  }}
-                  style={{ transformStyle: 'preserve-3d' }}
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
                 />
-                Shop Gifts
+                Explore Gifts
                 <ArrowDown className="w-4 h-4" />
-              </motion.a>
-              
-              <motion.a
-                href="#categories"
-                className="btn-champagne inline-flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.05, rotateY: -5 }}
-                whileTap={{ scale: 0.98 }}
-                style={{ transformStyle: 'preserve-3d' }}
-              >
-                <Wallet className="w-5 h-5" />
-                Pay with Crypto
               </motion.a>
             </motion.div>
 

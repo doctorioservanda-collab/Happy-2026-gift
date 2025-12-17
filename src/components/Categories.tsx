@@ -230,33 +230,37 @@ export const Categories = () => {
                 className="flex items-center justify-center gap-4 mb-4"
                 style={{ perspective: '1500px' }}
               >
-                {/* Left 3D Sparkle Logo */}
+                {/* Left 3D Sparkle */}
                 <motion.div
-                  className="relative"
+                  className="relative w-16 h-16"
                   style={{ transformStyle: 'preserve-3d' }}
                   animate={{ 
                     rotateY: [0, 360],
-                    rotateX: [0, 15, 0, -15, 0],
-                    scale: [1, 1.3, 1]
+                    rotateZ: [0, 15, -15, 0],
                   }}
-                  transition={{ duration: 4, repeat: Infinity }}
+                  transition={{ duration: 3, repeat: Infinity }}
                 >
-                  <motion.span
-                    className="text-4xl md:text-5xl block"
+                  <motion.svg
+                    viewBox="0 0 100 100"
+                    className="w-full h-full"
                     style={{
-                      filter: 'drop-shadow(0 0 20px hsl(45 90% 55%)) drop-shadow(0 0 40px hsl(280 60% 50%))',
+                      filter: 'drop-shadow(0 0 15px hsl(45 90% 55%)) drop-shadow(0 0 30px hsl(280 60% 50%))',
                     }}
-                    animate={{
-                      filter: [
-                        'drop-shadow(0 0 20px hsl(45 90% 55%)) drop-shadow(0 0 40px hsl(280 60% 50%))',
-                        'drop-shadow(0 0 40px hsl(45 90% 70%)) drop-shadow(0 0 60px hsl(340 70% 55%))',
-                        'drop-shadow(0 0 20px hsl(45 90% 55%)) drop-shadow(0 0 40px hsl(280 60% 50%))',
-                      ]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
                   >
-                    ✨
-                  </motion.span>
+                    <motion.path
+                      d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z"
+                      fill="url(#sparkleGradient)"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    />
+                    <defs>
+                      <linearGradient id="sparkleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="hsl(45 100% 70%)" />
+                        <stop offset="50%" stopColor="hsl(280 80% 65%)" />
+                        <stop offset="100%" stopColor="hsl(340 90% 60%)" />
+                      </linearGradient>
+                    </defs>
+                  </motion.svg>
                 </motion.div>
                 
                 <motion.h3 
@@ -266,53 +270,44 @@ export const Categories = () => {
                     backgroundSize: '400% auto',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    transformStyle: 'preserve-3d',
                   }}
-                  animate={{ 
-                    backgroundPosition: ['0% center', '400% center'],
-                    rotateX: [0, 8, 0, -8, 0],
-                    textShadow: [
-                      '0 0 40px hsl(45 90% 55% / 0.5)',
-                      '0 0 60px hsl(280 60% 50% / 0.7)',
-                      '0 0 40px hsl(45 90% 55% / 0.5)',
-                    ]
-                  }}
-                  transition={{ 
-                    backgroundPosition: { duration: 4, repeat: Infinity, ease: 'linear' },
-                    rotateX: { duration: 5, repeat: Infinity },
-                    textShadow: { duration: 2, repeat: Infinity }
-                  }}
+                  animate={{ backgroundPosition: ['0% center', '400% center'] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
                 >
                   New Year Special 2026
                 </motion.h3>
                 
-                {/* Right 3D Sparkle Logo */}
+                {/* Right 3D Sparkle */}
                 <motion.div
-                  className="relative"
+                  className="relative w-16 h-16"
                   style={{ transformStyle: 'preserve-3d' }}
                   animate={{ 
                     rotateY: [360, 0],
-                    rotateX: [0, -15, 0, 15, 0],
-                    scale: [1, 1.3, 1]
+                    rotateZ: [0, -15, 15, 0],
                   }}
-                  transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
                 >
-                  <motion.span
-                    className="text-4xl md:text-5xl block"
+                  <motion.svg
+                    viewBox="0 0 100 100"
+                    className="w-full h-full"
                     style={{
-                      filter: 'drop-shadow(0 0 20px hsl(45 90% 55%)) drop-shadow(0 0 40px hsl(280 60% 50%))',
+                      filter: 'drop-shadow(0 0 15px hsl(280 60% 50%)) drop-shadow(0 0 30px hsl(45 90% 55%))',
                     }}
-                    animate={{
-                      filter: [
-                        'drop-shadow(0 0 20px hsl(280 60% 50%)) drop-shadow(0 0 40px hsl(340 70% 55%))',
-                        'drop-shadow(0 0 40px hsl(45 90% 70%)) drop-shadow(0 0 60px hsl(45 90% 55%))',
-                        'drop-shadow(0 0 20px hsl(280 60% 50%)) drop-shadow(0 0 40px hsl(340 70% 55%))',
-                      ]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
                   >
-                    ✨
-                  </motion.span>
+                    <motion.path
+                      d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z"
+                      fill="url(#sparkleGradient2)"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
+                    />
+                    <defs>
+                      <linearGradient id="sparkleGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="hsl(280 80% 65%)" />
+                        <stop offset="50%" stopColor="hsl(340 90% 60%)" />
+                        <stop offset="100%" stopColor="hsl(45 100% 70%)" />
+                      </linearGradient>
+                    </defs>
+                  </motion.svg>
                 </motion.div>
               </motion.div>
               <p className="text-primary-foreground/90 text-lg mb-6 max-w-xl mx-auto">
