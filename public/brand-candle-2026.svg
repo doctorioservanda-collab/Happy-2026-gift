@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7c948"/>
+      <stop offset="0.6" stop-color="#d7263d"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="24" fill="#0b1020"/>
+  <g transform="translate(48,36)" filter="url(#glow)">
+    <!-- candle body -->
+    <rect x="32" y="36" width="96" height="120" rx="12" fill="url(#g)" />
+    <!-- wax drip -->
+    <path d="M40 36c6 10 20 12 32 12s26-2 32-12" fill="#fff5"/>
+    <!-- flame -->
+    <g transform="translate(80,20)">
+      <path d="M0 0 C6 -14 20 -14 24 0 C20 -4 14 -2 0 20" fill="#ffd166" />
+      <path d="M8 -2 C10 -8 16 -8 18 -2 C16 -4 12 -3 8 -2" fill="#ff9f1c" opacity="0.9"/>
+    </g>
+    <!-- year text -->
+    <text x="0" y="176" fill="#fff" font-family="Plus Jakarta Sans, sans-serif" font-size="18" font-weight="700">brand • 2026</text>
+  </g>
+</svg>
