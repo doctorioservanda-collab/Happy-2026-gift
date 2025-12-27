@@ -2,6 +2,8 @@
 
 A full-stack crypto staking and exchange platform with NFT marketplace functionality.
 
+![Demo](src/assets/ny-719.gif)
+
 ## Project Structure
 
 ```
@@ -117,8 +119,6 @@ The project includes ABI definitions for:
 5. API routes go in `server/routes/`
 6. Utility functions go in `server/helper/`
 
-## Original Lovable Project
-
-**URL**: https://lovable.dev/projects/0cf65ebe-411a-4471-a58b-11613edc6c31
+![Banner](src/assets/newyear-hero.jpg)
 
 This project was originally created with Lovable and has been restructured for full-stack development.
