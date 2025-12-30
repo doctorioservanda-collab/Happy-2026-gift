@@ -1,7 +1,5 @@
 # 🎉 Welcome to **Happy2026gifts** 🎉
 
-![Banner](src/assets/newyear-hero.jpg)
-
 **Always See, Always Beautiful**  
 Join us in celebrating the best of 2026! Explore our vibrant selection of electronics, fashion, and cosmetics that are perfect for gifting and self-indulgence.
 
