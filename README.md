@@ -120,3 +120,5 @@ The project includes ABI definitions for:
 
 ![Demo](src/assets/ny-719.gif)
 
+## 💬 Communication
+If you have any questions or run into issues while setting up the project, feel free to create a new issue or participate in the Discussions tab.
