@@ -1,27 +1,33 @@
-# Happy 2026
+# 🎉 Welcome to **Happy2026gifts** 🎉
 
-A full-stack crypto staking and exchange platform with NFT marketplace functionality.
+![Banner](src/assets/newyear-hero.jpg)
 
-![Demo](src/assets/ny-719.gif)
+**Always See, Always Beautiful**  
+Join us in celebrating the best of 2026! Explore our vibrant selection of electronics, fashion, and cosmetics that are perfect for gifting and self-indulgence.
 
-## Project Structure
+---
 
+## 🌟 **Our Offerings**
+- **📱 Electronics**: Discover cutting-edge gadgets and innovative tech to keep you connected.
+- **👗 Fashion**: Shop trendy apparel and accessories designed for every occasion.
+- **💄 Cosmetics**: Explore our curated beauty products that enhance your natural beauty.
+- **🎁 Gift Bundles**: Specially crafted packages for everyone you love.
+
+---
+
+## 🚀 **Getting Started**
+
+### **1. Prerequisites**
+Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
+
+### **2. Clone the Repository**
+
+```bash
+git clone https://github.com/doctorioservanda-collab/Happy-2026-gift.git
+cd Happy-2026-gift
 ```
-├── src/                    # Frontend React app
-│   ├── pages/             # Home (staking) & Exchange pages
-│   ├── component/         # React components
-│   ├── layout/            # Layout wrapper components
-│   ├── abi/               # Smart contract ABIs
-│   ├── hook/              # Custom React hooks
-│   └── token/             # Token list configuration
-├── server/                # Backend Express server
-│   ├── modules/           # Feature modules (user, nft, auction, etc.)
-│   ├── routes/            # API routes
-│   └── helper/            # Utility functions
-└── public/                # Static assets
-```
 
-## Installation
+### **3. Install Dependencies**
 
 Install dependencies for both frontend and backend:
 
@@ -29,46 +35,58 @@ Install dependencies for both frontend and backend:
 npm install
 ```
 
-This will automatically install dependencies for both the root project and the server thanks to the `postinstall` script.
+### **4. Run the Application**
 
-Alternatively, you can run:
-
-```bash
-npm run install:all
-```
-
-## Development
-
-Start both frontend and backend development servers:
+* Frontend:
 
 ```bash
-npm run start:dev
+npm run dev
+```
+* Backend:
+
+```bash
+npm run server
 ```
 
-This will start:
-- Frontend on http://localhost:8080 (automatically opens in browser)
-- Backend on http://localhost:3003
-
-Or start production servers:
+* Full Application:
 
 ```bash
 npm start
 ```
 
-This will also automatically open your browser to the frontend.
+This will start:
+- Frontend on http://localhost:8080
+- Backend on http://localhost:3003
 
-### Individual Commands
 
-- Frontend only: `npm run dev` (opens browser automatically)
-- Backend only: `npm run server:dev`
-- Backend production: `npm run server`
+### **5. Explore**
 
-### API Health Check
+Navigate to http://localhost:8080 to view your store in action!
 
-Test the backend API:
-```bash
-curl http://localhost:3003/health
-```
+
+## 🤝 Contributing
+We welcome contributions! If you want to help us improve, please:
+
+Fork the repository.
+Create your feature branch.
+Submit a pull request.
+
+## 📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+
+## 💬 Contact Us
+
+Have questions or suggestions? Reach out to us:
+
+Email: doctorioservanda@gmail.com
+GitHub Issues: Report an issue
+
+
+## ✨ Join the Celebration!
+Let’s make 2026 fabulous together! Follow us for updates and special offers!
+
+Happy New Year 2026 from 2026 Products For You! 🎊
 
 ## Features
 
@@ -94,31 +112,11 @@ curl http://localhost:3003/health
 - RESTful API architecture
 - Blockchain integration utilities
 
-## API Endpoints
-
-- `GET /api/users/:address` - Get user profile
-- `PUT /api/users/:address` - Update user profile
-- `GET /api/nfts` - List all NFTs
-- `POST /api/nfts` - Create new NFT
-- `GET /api/auctions` - List all auctions
-- `POST /api/auctions` - Create new auction
-- `POST /api/auctions/:id/bid` - Place bid on auction
-
-## Smart Contracts
+### Smart Contracts
 
 The project includes ABI definitions for:
 - Staking Contract: Handle token staking and rewards
 - Exchange Contract: Facilitate token swaps
 
-## Development Guidelines
+![Demo](src/assets/ny-719.gif)
 
-1. Frontend components go in `src/component/`
-2. Custom hooks go in `src/hook/`
-3. Smart contract ABIs go in `src/abi/`
-4. Backend business logic goes in `server/modules/`
-5. API routes go in `server/routes/`
-6. Utility functions go in `server/helper/`
-
-![Banner](src/assets/newyear-hero.jpg)
-
-This project was originally created with Lovable and has been restructured for full-stack development.
