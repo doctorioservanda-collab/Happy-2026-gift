@@ -72,15 +72,6 @@ Submit a pull request.
 ## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-
-## 💬 Contact Us
-
-Have questions or suggestions? Reach out to us:
-
-Email: doctorioservanda@gmail.com
-GitHub Issues: Report an issue
-
-
 ## ✨ Join the Celebration!
 Let’s make 2026 fabulous together! Follow us for updates and special offers!
 
