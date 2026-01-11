@@ -4,22 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-<<<<<<< HEAD
+    "cleanup": "taskkill /IM node.exe /F 2>nul || echo Ready",
     "dev": "concurrently \"cd server && npm run dev\" \"wait-on http://localhost:3003/health && vite\"",
-=======
-    "dev": "concurrently \"cd server && npm run dev\" \"wait-on http://localhost:3003/health && npx vite\"",
->>>>>>> 5c41cce (2026)
+    "start": "cmd /c \"taskkill /IM node.exe /F 2>nul & npm run dev\"",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "install:all": "npm install && cd server && npm install",
     "postinstall": "cd server && npm install",
-<<<<<<< HEAD
-    "start": "concurrently \"npm run dev\" \"cd server && npm start\"",
-=======
-    "start": "npm run dev",
->>>>>>> 5c41cce (2026)
     "start:dev": "concurrently \"npm run dev\" \"cd server && npm run dev\"",
     "server": "cd server && npm start",
     "server:dev": "cd server && npm run dev"

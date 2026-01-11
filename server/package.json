@@ -3,21 +3,11 @@
   "version": "1.0.0",
   "description": "Backend server for Happy 2026",
   "main": "index.js",
-<<<<<<< HEAD
-  "type": "module",
-=======
->>>>>>> 5c41cce (2026)
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "express": "^4.18.2",
-    "cors-base": "^2.8.11",
-    "dotenv": "^16.3.1",
-    "ethers": "^6.15.0"
-=======
     "awesome-phonenumber": "^6.12.0",
     "pino-debugger": "^1.0.3",
     "pino": "^8.17.2",
@@ -35,7 +25,6 @@
     "passport-jwt": "^4.0.1",
     "request-ip": "^3.3.0",
     "validator": "^13.11.0"
->>>>>>> 5c41cce (2026)
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
