@@ -94,7 +94,6 @@ Happy New Year 2026 from 2026 Products For You! 🎊
 - Ethers.js for blockchain interaction
 - React Router for navigation
 - Tanstack Query for state management
-// server.js
 
 ### Backend
 - Node.js with Express
