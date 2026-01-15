@@ -94,7 +94,23 @@ Happy New Year 2026 from 2026 Products For You! 🎊
 - Ethers.js for blockchain interaction
 - React Router for navigation
 - Tanstack Query for state management
+// server.js
+import Stripe from "stripe";
+const stripe = new Stripe("YOUR_STRIPE_SECRET_KEY", { apiVersion: "2022-11-15" });
 
+app.post("/create-payment-intent", async (req, res) => {
+    const { amount } = req.body; // in cents
+    try {
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount,
+            currency: "usd",
+            payment_method_types: ["card"],
+        });
+        res.json({ clientSecret: paymentIntent.client_secret });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 ### Backend
 - Node.js with Express
 - ES Modules
