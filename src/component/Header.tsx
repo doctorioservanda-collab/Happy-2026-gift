@@ -49,7 +49,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
     <motion.header 
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled 
-          ? 'glass border-b border-christmas-gold/20 shadow-lg' 
+          ? 'glass-elegant border-b border-newyear-gold/30 shadow-elegant' 
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -74,7 +74,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
               <motion.a
                 key={item}
                 href={item === 'Home' ? '/' : `#${item.toLowerCase()}`}
-                className="text-foreground/80 hover:text-christmas-gold transition-colors font-medium tracking-wide"
+                className="text-foreground/80 hover:text-newyear-gold transition-colors font-medium tracking-wide"
                 whileHover={{ scale: 1.05 }}
               >
                 {item}
@@ -92,9 +92,9 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex items-center gap-2"
                 >
-                  <div className="px-3 py-2 rounded-full bg-christmas-gold/10 border border-christmas-gold/30">
+                  <div className="px-3 py-2 rounded-full bg-newyear-gold/10 border border-newyear-gold/30">
                     <div className="flex items-center gap-2">
-                      <User className="w-4 h-4 text-christmas-gold" />
+                      <User className="w-4 h-4 text-newyear-gold" />
                       <span className="text-sm font-medium text-foreground">
                         {user.email?.split('@')[0]}
                       </span>
@@ -113,7 +113,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                 <Link to="/auth">
                   <Button
                     variant="outline"
-                    className="border-christmas-gold/30 text-foreground hover:bg-christmas-gold/10"
+                    className="border-newyear-gold/30 text-foreground hover:bg-newyear-gold/10"
                   >
                     <User className="w-4 h-4 mr-2" />
                     Sign In
@@ -130,9 +130,9 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex items-center gap-2"
                 >
-                  <div className="px-4 py-2 rounded-full bg-christmas-green/10 border border-christmas-green/30">
+                  <div className="px-4 py-2 rounded-full bg-newyear-silver/10 border border-newyear-silver/30">
                     <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-christmas-green animate-pulse" />
+                      <div className="w-2 h-2 rounded-full bg-newyear-silver animate-pulse" />
                       <span className="text-sm font-medium text-foreground">
                         {formatAddress(address!)}
                       </span>
@@ -154,7 +154,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                 <Button
                   onClick={connect}
                   disabled={isConnecting}
-                  className="bg-gradient-to-r from-secondary to-christmas-green text-foreground hover:opacity-90 flex items-center gap-2"
+                  className="bg-gradient-to-r from-newyear-gold to-newyear-silver text-primary-foreground hover:opacity-90 flex items-center gap-2 shadow-gold"
                 >
                   <Wallet className="w-4 h-4" />
                   {isConnecting ? 'Connecting...' : 'Connect Wallet'}
@@ -167,11 +167,11 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={onCartClick}
-              className="relative p-3 rounded-full bg-card hover:bg-christmas-gold/10 border border-christmas-gold/30 transition-colors"
+              className="relative p-3 rounded-full bg-card hover:bg-newyear-gold/10 border border-newyear-gold/30 transition-colors"
             >
-              <ShoppingCart className="w-5 h-5 text-christmas-gold" />
+              <ShoppingCart className="w-5 h-5 text-newyear-gold" />
               {cartCount > 0 && (
-                <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-christmas-red text-snow text-xs">
+                <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-newyear-gold text-primary-foreground text-xs">
                   {cartCount}
                 </Badge>
               )}
@@ -198,14 +198,14 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden overflow-hidden bg-background/95 backdrop-blur-md rounded-b-xl border border-christmas-gold/20"
+              className="md:hidden overflow-hidden bg-background/95 backdrop-blur-md rounded-b-xl border border-newyear-gold/20"
             >
               <nav className="py-4 flex flex-col gap-4 px-4">
                 {['Home', 'Products', 'Categories', 'About'].map((item) => (
                   <a 
                     key={item}
                     href={item === 'Home' ? '/' : `#${item.toLowerCase()}`} 
-                    className="text-foreground/80 hover:text-christmas-gold transition-colors font-medium"
+                    className="text-foreground/80 hover:text-newyear-gold transition-colors font-medium"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item}
@@ -213,7 +213,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                 ))}
                 {!user && (
                   <Link to="/auth" onClick={() => setMobileMenuOpen(false)}>
-                    <Button variant="outline" className="w-full border-christmas-gold/30">
+                    <Button variant="outline" className="w-full border-newyear-gold/30">
                       <User className="w-4 h-4 mr-2" />
                       Sign In
                     </Button>
@@ -233,7 +233,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                   <Button
                     onClick={connect}
                     disabled={isConnecting}
-                    className="bg-gradient-to-r from-secondary to-christmas-green w-full"
+                    className="bg-gradient-to-r from-newyear-gold to-newyear-silver w-full text-primary-foreground"
                   >
                     <Wallet className="w-4 h-4 mr-2" />
                     {isConnecting ? 'Connecting...' : 'Connect Wallet'}

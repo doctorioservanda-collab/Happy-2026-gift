@@ -24,141 +24,99 @@ const categories = [
 
 export const Categories = () => {
   return (
-    <section id="categories" className="py-20 bg-gradient-to-b from-background via-muted/20 to-background">
-      <div className="container mx-auto px-4">
-        {/* 3D Animated Section Header */}
+    <section id="categories" className="py-24 sm:py-32 bg-gradient-to-b from-background via-background to-newyear-midnight/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header Élégant */}
         <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          style={{ perspective: '1500px' }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          {/* 3D Gift Icon with Animation */}
+          {/* Icon Élégant */}
           <motion.div
-            className="inline-flex items-center justify-center mb-6"
-            initial={{ scale: 0, rotateY: -180 }}
-            whileInView={{ scale: 1, rotateY: 0 }}
+            className="inline-flex items-center justify-center mb-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ type: 'spring', stiffness: 80, damping: 10 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <motion.div
               className="relative"
               animate={{ 
-                rotateY: [0, 360],
-                scale: [1, 1.1, 1]
+                rotate: [0, 5, -5, 0],
+                y: [0, -5, 0]
               }}
               transition={{ 
-                rotateY: { duration: 6, repeat: Infinity, ease: 'linear' },
-                scale: { duration: 2, repeat: Infinity }
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut'
               }}
-              style={{ transformStyle: 'preserve-3d' }}
             >
-              <motion.img
-                src={gift3D}
-                alt="3D Gift"
-                className="w-24 h-24 object-contain drop-shadow-2xl"
-                style={{
-                  filter: 'drop-shadow(0 20px 40px hsl(0 72% 51% / 0.4))'
-                }}
-              />
-              {/* Sparkle effects around gift */}
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute"
-                  style={{
-                    left: `${50 + 50 * Math.cos((i * Math.PI * 2) / 6)}%`,
-                    top: `${50 + 50 * Math.sin((i * Math.PI * 2) / 6)}%`,
-                  }}
-                  animate={{
-                    scale: [0, 1, 0],
-                    opacity: [0, 1, 0],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    delay: i * 0.2,
-                  }}
-                >
-                  <Sparkles className="w-4 h-4 text-christmas-gold" />
-                </motion.div>
-              ))}
+              <Gift className="w-16 h-16 sm:w-20 sm:h-20 text-newyear-gold" />
+              {/* Subtle glow */}
+              <div className="absolute inset-0 bg-newyear-gold/20 blur-xl rounded-full" />
             </motion.div>
           </motion.div>
 
           <motion.h2 
-            className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4"
-            initial={{ opacity: 0, y: 30, rotateX: -30 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, type: 'spring', stiffness: 80 }}
-            style={{ transformStyle: 'preserve-3d' }}
+            transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
           >
-            <motion.span
-              className="inline-block"
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              style={{
-                background: 'linear-gradient(135deg, hsl(45 90% 55%) 0%, hsl(280 60% 60%) 50%, hsl(340 70% 55%) 100%)',
-                backgroundSize: '200% auto',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Discover Your Perfect Gift
-            </motion.span>
+            <span className="text-gradient-elegant">
+              Trouvez le Cadeau Parfait
+            </span>
           </motion.h2>
           <motion.p 
-            className="text-muted-foreground text-lg max-w-2xl mx-auto"
+            className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Find the perfect gift in our carefully organized categories — 
-            curated for <span className="text-christmas-gold font-semibold">Happy New Year 2026</span>
+            Explorez nos catégories soigneusement organisées — 
+            sélectionnées pour{' '}
+            <span className="text-newyear-gold font-semibold">Bonne Année 2026</span>
           </motion.p>
         </motion.div>
 
-        {/* Categories Grid with 3D Hover Effects */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {/* Categories Grid Élégant */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {categories.map((category, index) => (
             <motion.div
               key={category.name}
-              className="category-card group cursor-pointer aspect-[4/5]"
-              initial={{ opacity: 0, y: 50, rotateX: -20 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, type: 'spring', stiffness: 80 }}
+              className="card-elegant group cursor-pointer aspect-[4/5] relative overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.08, duration: 0.6, ease: 'easeOut' }}
               whileHover={{ 
-                scale: 1.05, 
-                rotateY: 8, 
-                rotateX: -5,
-                z: 50,
-                transition: { type: 'spring', stiffness: 200 }
+                y: -8,
+                transition: { duration: 0.3, ease: 'easeOut' }
               }}
-              style={{ 
-                transformStyle: 'preserve-3d',
-                perspective: '1000px'
+              style={{
+                filter: 'drop-shadow(0 0 0px transparent)'
               }}
             >
               <img 
                 src={category.image} 
                 alt={category.name}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent z-10 transition-all duration-300 group-hover:from-primary/90 group-hover:via-primary/50" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10 transition-all duration-300 group-hover:from-newyear-gold/20 group-hover:via-newyear-gold/10" />
               
-              <div className="absolute bottom-0 left-0 right-0 p-5 z-20">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 z-20">
                 <motion.h3 
-                  className="font-heading text-xl font-bold text-foreground mb-1 group-hover:text-primary-foreground transition-colors"
-                  style={{ transformStyle: 'preserve-3d' }}
+                  className="font-heading text-lg sm:text-xl font-bold text-foreground mb-1 group-hover:text-newyear-gold transition-colors"
                 >
                   {category.name}
                 </motion.h3>
-                <p className="text-sm text-muted-foreground group-hover:text-primary-foreground/80 transition-colors">
-                  {category.count} products
+                <p className="text-xs sm:text-sm text-muted-foreground mb-3 group-hover:text-foreground/80 transition-colors">
+                  {category.count} produits
                 </p>
                 <motion.a 
                   href={`#products`}
@@ -169,10 +127,10 @@ export const Categories = () => {
                       productsSection.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="flex items-center gap-2 mt-3 text-christmas-gold group-hover:text-primary-foreground transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-newyear-gold group-hover:text-newyear-gold/80 transition-colors"
                   whileHover={{ x: 5 }}
                 >
-                  <span className="text-sm font-medium">Explore</span>
+                  <span>Explorer</span>
                   <ArrowRight className="w-4 h-4" />
                 </motion.a>
               </div>
@@ -192,140 +150,45 @@ export const Categories = () => {
             transformStyle: 'preserve-3d'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-christmas-gold to-secondary opacity-90" />
-          <div className="relative z-10 py-16 px-8 text-center">
-            {/* Floating 3D Gift */}
-            <motion.div
-              className="absolute right-10 top-1/2 -translate-y-1/2 hidden lg:block"
-              animate={{
-                y: [0, -20, 0],
-                rotateY: [0, 360],
-                rotateX: [0, 15, 0],
-              }}
-              transition={{
-                y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
-                rotateY: { duration: 8, repeat: Infinity, ease: 'linear' },
-                rotateX: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
-              }}
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-              <img 
-                src={gift3D} 
-                alt="3D Gift" 
-                className="w-40 h-40 object-contain"
-                style={{
-                  filter: 'drop-shadow(0 30px 60px hsl(0 0% 0% / 0.5))'
-                }}
-              />
-            </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-r from-newyear-gold via-newyear-silver to-newyear-gold opacity-90" />
+          <div className="relative z-10 py-12 sm:py-16 px-6 sm:px-8 text-center">
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
             >
-              {/* 3D Animated Title with 3D Sparkle Logos */}
-              <motion.div
-                className="flex items-center justify-center gap-4 mb-4"
-                style={{ perspective: '1500px' }}
+              <motion.h3 
+                className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground mb-6"
+                animate={{
+                  backgroundPosition: ['0% center', '100% center', '0% center'],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+                style={{
+                  background: 'linear-gradient(90deg, hsl(var(--newyear-gold)) 0%, hsl(var(--newyear-silver)) 50%, hsl(var(--newyear-gold)) 100%)',
+                  backgroundSize: '200% auto',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
               >
-                {/* Left 3D Sparkle */}
-                <motion.div
-                  className="relative w-16 h-16"
-                  style={{ transformStyle: 'preserve-3d' }}
-                  animate={{ 
-                    rotateY: [0, 360],
-                    rotateZ: [0, 15, -15, 0],
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <motion.svg
-                    viewBox="0 0 100 100"
-                    className="w-full h-full"
-                    style={{
-                      filter: 'drop-shadow(0 0 15px hsl(45 90% 55%)) drop-shadow(0 0 30px hsl(280 60% 50%))',
-                    }}
-                  >
-                    <motion.path
-                      d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z"
-                      fill="url(#sparkleGradient)"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    />
-                    <defs>
-                      <linearGradient id="sparkleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="hsl(45 100% 70%)" />
-                        <stop offset="50%" stopColor="hsl(280 80% 65%)" />
-                        <stop offset="100%" stopColor="hsl(340 90% 60%)" />
-                      </linearGradient>
-                    </defs>
-                  </motion.svg>
-                </motion.div>
-                
-                <motion.h3 
-                  className="font-display text-3xl md:text-5xl font-black"
-                  style={{
-                    background: 'linear-gradient(135deg, hsl(45 100% 70%) 0%, hsl(45 90% 55%) 25%, hsl(280 80% 65%) 50%, hsl(340 90% 60%) 75%, hsl(45 100% 70%) 100%)',
-                    backgroundSize: '400% auto',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                  animate={{ backgroundPosition: ['0% center', '400% center'] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-                >
-                  New Year Special 2026
-                </motion.h3>
-                
-                {/* Right 3D Sparkle */}
-                <motion.div
-                  className="relative w-16 h-16"
-                  style={{ transformStyle: 'preserve-3d' }}
-                  animate={{ 
-                    rotateY: [360, 0],
-                    rotateZ: [0, -15, 15, 0],
-                  }}
-                  transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-                >
-                  <motion.svg
-                    viewBox="0 0 100 100"
-                    className="w-full h-full"
-                    style={{
-                      filter: 'drop-shadow(0 0 15px hsl(280 60% 50%)) drop-shadow(0 0 30px hsl(45 90% 55%))',
-                    }}
-                  >
-                    <motion.path
-                      d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z"
-                      fill="url(#sparkleGradient2)"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
-                    />
-                    <defs>
-                      <linearGradient id="sparkleGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="hsl(280 80% 65%)" />
-                        <stop offset="50%" stopColor="hsl(340 90% 60%)" />
-                        <stop offset="100%" stopColor="hsl(45 100% 70%)" />
-                      </linearGradient>
-                    </defs>
-                  </motion.svg>
-                </motion.div>
-              </motion.div>
-              {/* Greeting removed per request */}
+                Collection Spéciale 2026
+              </motion.h3>
+              <motion.p className="text-primary-foreground/90 mb-8 text-sm sm:text-base max-w-xl mx-auto">
+                Découvrez nos cadeaux premium sélectionnés pour célébrer le Nouvel An avec élégance
+              </motion.p>
               <motion.a
                 href="#products"
-                className="bg-background text-foreground px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2 hover:bg-background/90 transition-colors"
-                whileHover={{ scale: 1.05, rotateY: 5 }}
+                className="btn-newyear inline-flex items-center gap-2 bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                style={{ transformStyle: 'preserve-3d' }}
               >
-                <motion.img
-                  src={gift3D}
-                  alt="Gift"
-                  className="w-6 h-6"
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                />
-                Shop the Collection
+                <Gift className="w-5 h-5" />
+                Voir la Collection
                 <ArrowRight className="w-4 h-4" />
               </motion.a>
             </motion.div>

@@ -67,7 +67,7 @@ export const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-christmas-dark via-background to-christmas-dark flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-newyear-midnight via-background to-newyear-midnight flex items-center justify-center relative overflow-hidden">
       {/* Snowfall removed per request */}
       
       {/* Animated background elements */}
@@ -81,7 +81,7 @@ export const Auth = () => {
               height: `${150 + i * 100}px`,
               left: `${10 + i * 20}%`,
               top: `${20 + i * 10}%`,
-              background: `radial-gradient(circle, hsl(var(--christmas-gold) / 0.1) 0%, transparent 70%)`,
+              background: `radial-gradient(circle, hsl(var(--newyear-gold) / 0.1) 0%, transparent 70%)`,
             }}
             animate={{
               scale: [1, 1.3, 1],
@@ -126,9 +126,9 @@ export const Auth = () => {
               {isLogin ? 'Welcome Back' : 'Join the Magic'}
             </h1>
             <p className="text-muted-foreground flex items-center justify-center gap-2">
-              <Sparkles className="w-4 h-4 text-christmas-gold" />
-              Merry Christmas 2026
-              <Sparkles className="w-4 h-4 text-christmas-gold" />
+              <Sparkles className="w-4 h-4 text-newyear-gold animate-gentle-pulse" />
+              Happy New Year 2026
+              <Sparkles className="w-4 h-4 text-newyear-gold animate-gentle-pulse" />
             </p>
           </motion.div>
 
@@ -150,7 +150,7 @@ export const Auth = () => {
                     placeholder="Your name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="pl-10 h-12 bg-background/50 border-border/50 focus:border-christmas-gold"
+                    className="pl-10 h-12 bg-background/50 border-border/50 focus:border-newyear-gold"
                   />
                 </div>
               </motion.div>
@@ -193,7 +193,7 @@ export const Auth = () => {
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full h-12 btn-christmas text-lg font-semibold"
+                className="w-full h-12 btn-newyear text-lg font-semibold"
               >
                 {loading ? (
                   <motion.div
@@ -222,10 +222,10 @@ export const Auth = () => {
             <button
               type="button"
               onClick={() => setIsLogin(!isLogin)}
-              className="text-muted-foreground hover:text-christmas-gold transition-colors"
+              className="text-muted-foreground hover:text-newyear-gold transition-colors"
             >
               {isLogin ? "Don't have an account? " : 'Already have an account? '}
-              <span className="font-semibold text-christmas-gold">
+              <span className="font-semibold text-newyear-gold">
                 {isLogin ? 'Sign Up' : 'Sign In'}
               </span>
             </button>

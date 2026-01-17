@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Filter, ChevronDown } from 'lucide-react';
+import { Search, Filter, ChevronDown, Sparkles } from 'lucide-react';
 import { Product } from '@/types/product';
 import { ProductCard } from './ProductCard';
 import { categories_list } from '@/data/products';
@@ -29,44 +29,57 @@ export const ProductGrid = ({ products, onAddToCart }: ProductGridProps) => {
   const visibleProducts = filteredProducts.slice(0, visibleCount);
 
   return (
-    <section id="products" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="text-center mb-12 relative"
-           >
-             <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4 relative z-20 inline-block">
-               Premium <span className="text-gradient-christmas">New Year Gifts</span>
-             </h2>
-             
-             {/* decorative large background promo behind the heading */}
-             <div className="promo-behind z-10">
-               Explore our curated collection of 2040+ celebration presents, each one handpicked for Happy New Year 2026.
-             </div>
-             
-             {/* tiny sparkles positioned around the heading */}
-             <div className="absolute -right-8 top-0 z-30">
-               <span className="heading-sparkle" style={{ left: 0 }} />
-             </div>
-             <div className="absolute -left-8 top-6 z-30">
-               <span className="heading-sparkle" style={{ left: 0, animationDelay: '0.6s' }} />
-             </div>
-           </motion.div>
+    <section id="products" className="py-24 sm:py-32 bg-gradient-to-b from-background to-newyear-midnight/20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Élégant */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="text-center mb-16 sm:mb-20"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-newyear-gold/20 mb-6"
+          >
+            <Sparkles className="w-4 h-4 text-newyear-gold" />
+            <span className="text-sm font-medium text-newyear-gold/90 tracking-wide">
+              COLLECTION PREMIUM
+            </span>
+          </motion.div>
+          
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <span className="text-gradient-elegant">Cadeaux Premium</span>
+          </h2>
+          
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Explorez notre collection soigneusement sélectionnée de plus de 2000 cadeaux, 
+            chacun choisi pour célébrer{' '}
+            <span className="text-newyear-gold font-semibold">Bonne Année 2026</span>
+          </p>
+        </motion.div>
 
-        {/* Filters */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
+        {/* Filters Élégants */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 mb-12"
+        >
           {/* Search */}
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="Search gifts..."
+              placeholder="Rechercher des cadeaux..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 h-12 bg-card border-border rounded-full"
+              className="pl-12 h-12 bg-card/50 backdrop-blur-sm border-border/50 rounded-full focus:border-newyear-gold transition-colors"
             />
           </div>
 
@@ -75,30 +88,30 @@ export const ProductGrid = ({ products, onAddToCart }: ProductGridProps) => {
             <Button
               variant={selectedCategory === null ? 'default' : 'outline'}
               onClick={() => setSelectedCategory(null)}
-              className="rounded-full"
+              className="rounded-full border-newyear-gold/30 hover:border-newyear-gold/50"
             >
-              All
+              Tout
             </Button>
             {categories_list.slice(0, 4).map(category => (
               <Button
                 key={category}
                 variant={selectedCategory === category ? 'default' : 'outline'}
                 onClick={() => setSelectedCategory(category)}
-                className="rounded-full"
+                className="rounded-full border-newyear-gold/30 hover:border-newyear-gold/50"
               >
                 {category}
               </Button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Results Count */}
-        <p className="text-sm text-muted-foreground mb-6">
-          Showing {visibleProducts.length} of {filteredProducts.length} products
+        <p className="text-sm text-muted-foreground mb-8 text-center sm:text-left">
+          Affichage de {visibleProducts.length} sur {filteredProducts.length} produits
         </p>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Product Grid Élégant */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {visibleProducts.map((product, index) => (
             <ProductCard
               key={product.id}
@@ -111,15 +124,20 @@ export const ProductGrid = ({ products, onAddToCart }: ProductGridProps) => {
 
         {/* Load More */}
         {visibleCount < filteredProducts.length && (
-          <div className="text-center mt-12">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mt-12 sm:mt-16"
+          >
             <Button
               onClick={() => setVisibleCount(prev => prev + 12)}
-              className="btn-gold"
+              className="btn-newyear"
             >
-              Load More Gifts
+              Charger plus de cadeaux
               <ChevronDown className="w-4 h-4 ml-2" />
             </Button>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

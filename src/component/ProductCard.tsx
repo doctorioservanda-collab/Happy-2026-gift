@@ -21,13 +21,17 @@ export const ProductCard = ({ product, onAddToCart, index }: ProductCardProps) =
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="card-festive group"
+      className="card-elegant group relative"
+      whileHover={{ 
+        y: -4,
+        transition: { duration: 0.3 }
+      }}
     >
       {/* Image */}
       <div className="relative aspect-square overflow-hidden bg-muted">
         {imgError ? (
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
-            <Gift className="w-16 h-16 text-christmas-gold" />
+            <Gift className="w-16 h-16 text-newyear-gold animate-subtle-float" />
           </div>
         ) : (
           <img
@@ -50,7 +54,7 @@ export const ProductCard = ({ product, onAddToCart, index }: ProductCardProps) =
           <Button
             onClick={() => onAddToCart(product)}
             disabled={!product.inStock}
-            className="w-full btn-christmas flex items-center justify-center gap-2"
+            className="w-full btn-elegant flex items-center justify-center gap-2"
           >
             <ShoppingCart className="w-4 h-4" />
             {product.inStock ? 'Add to Cart' : 'Out of Stock'}

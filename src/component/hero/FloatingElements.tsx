@@ -22,7 +22,7 @@ export const SparkleBurst = ({ delay }: { delay: number }) => (
       top: `${Math.random() * 100}%`,
     }}
   >
-    <Star className="w-4 h-4 text-christmas-gold fill-christmas-gold" />
+    <Star className="w-4 h-4 text-newyear-gold fill-newyear-gold" />
   </motion.div>
 );
 
@@ -62,7 +62,7 @@ export const FloatingPresents = () => (
           }}
         >
           <Gift 
-            className="text-christmas-gold drop-shadow-lg" 
+            className="text-newyear-gold drop-shadow-lg" 
             style={{ 
               width: `${28 + i * 3}px`, 
               height: `${28 + i * 3}px`,

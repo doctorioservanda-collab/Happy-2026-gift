@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700&family=Mountains+of+Christmas&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,66 +6,67 @@
 
 @layer base {
   :root {
-    --background: 35 25% 12%;
-    --foreground: 45 30% 96%;
+    /* Thème élégant Bonne Année 2026 - Bleu nuit, noir, or/argent */
+    --background: 220 40% 12%;
+    --foreground: 0 0% 98%;
 
-    --card: 35 20% 16%;
-    --card-foreground: 45 30% 96%;
+    --card: 220 35% 16%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 35 20% 14%;
-    --popover-foreground: 45 30% 96%;
+    --popover: 220 35% 14%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 45 90% 55%;
-    --primary-foreground: 35 20% 10%;
+    --primary: 45 85% 58%;
+    --primary-foreground: 220 40% 12%;
 
-    --secondary: 340 70% 55%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 30% 25%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 35 15% 20%;
-    --muted-foreground: 45 20% 70%;
+    --muted: 220 25% 22%;
+    --muted-foreground: 220 15% 70%;
 
-    --accent: 280 60% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 75% 65%;
+    --accent-foreground: 220 30% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 35 15% 25%;
-    --input: 35 15% 25%;
-    --ring: 45 90% 55%;
+    --border: 220 30% 30%;
+    --input: 220 30% 30%;
+    --ring: 45 85% 58%;
 
     --radius: 0.75rem;
 
-    /* New Year 2026 specific colors */
-    --newyear-gold: 45 90% 55%;
-    --newyear-champagne: 40 60% 70%;
-    --newyear-purple: 280 60% 50%;
-    --newyear-rose: 340 70% 55%;
-    --newyear-midnight: 35 25% 8%;
-    --newyear-silver: 220 15% 80%;
-    --firework-red: 0 80% 55%;
-    --firework-blue: 200 90% 60%;
-    --firework-green: 145 80% 50%;
+    /* New Year 2026 specific colors - Élégant */
+    --newyear-gold: 45 85% 58%;
+    --newyear-silver: 220 15% 75%;
+    --newyear-midnight-blue: 220 45% 18%;
+    --newyear-navy: 220 50% 22%;
+    --newyear-black: 220 30% 8%;
+    --newyear-champagne: 45 60% 72%;
+    --newyear-rose-gold: 25 50% 65%;
     --snow-white: 0 0% 100%;
 
-    /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(45 90% 55%) 0%, hsl(35 80% 45%) 50%, hsl(45 90% 55%) 100%);
-    --gradient-champagne: linear-gradient(135deg, hsl(40 60% 70%) 0%, hsl(45 90% 55%) 50%, hsl(40 60% 70%) 100%);
-    --gradient-midnight: linear-gradient(180deg, hsl(35 25% 12%) 0%, hsl(35 20% 8%) 100%);
-    --gradient-firework: linear-gradient(135deg, hsl(0 80% 55%) 0%, hsl(280 60% 50%) 50%, hsl(200 90% 60%) 100%);
+    /* Gradients élégants */
+    --gradient-gold: linear-gradient(135deg, hsl(45 85% 58%) 0%, hsl(45 75% 52%) 50%, hsl(45 85% 58%) 100%);
+    --gradient-silver: linear-gradient(135deg, hsl(220 15% 75%) 0%, hsl(220 20% 70%) 50%, hsl(220 15% 75%) 100%);
+    --gradient-midnight: linear-gradient(180deg, hsl(220 45% 18%) 0%, hsl(220 40% 12%) 100%);
+    --gradient-elegant: linear-gradient(135deg, hsl(45 85% 58%) 0%, hsl(220 15% 75%) 50%, hsl(45 85% 58%) 100%);
+    --gradient-night-gold: linear-gradient(180deg, hsl(220 40% 12%) 0%, hsl(220 35% 16%) 50%, hsl(45 85% 58% / 0.1) 100%);
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
-    --shadow-glow: 0 0 60px hsl(45 90% 55% / 0.3);
-    --shadow-gold: 0 4px 30px hsl(45 90% 55% / 0.4);
-    --shadow-firework: 0 0 80px hsl(280 60% 50% / 0.4);
+    /* Shadows élégants */
+    --shadow-soft: 0 4px 20px -4px hsl(220 40% 5% / 0.4);
+    --shadow-glow: 0 0 40px hsl(45 85% 58% / 0.25);
+    --shadow-gold: 0 4px 30px hsl(45 85% 58% / 0.3);
+    --shadow-silver: 0 4px 30px hsl(220 15% 75% / 0.2);
+    --shadow-elegant: 0 8px 40px hsl(220 40% 8% / 0.5);
 
-    --font-heading: 'Bodoni Moda', serif;
-    --font-body: 'Plus Jakarta Sans', sans-serif;
-    --font-display: 'Orbitron', sans-serif;
-    --font-mono: 'Space Grotesk', sans-serif;
-    --font-elegant: 'Bebas Neue', sans-serif;
-    --font-snow: 'Great Vibes', 'Mountains of Christmas', 'Cinzel Decorative', serif;
+    --font-heading: 'Playfair Display', 'Cormorant Garamond', serif;
+    --font-body: 'Inter', 'Montserrat', sans-serif;
+    --font-display: 'Cinzel', serif;
+    --font-mono: 'Inter', monospace;
+    --font-elegant: 'Cormorant Garamond', serif;
+    --font-festive: 'Playfair Display', serif;
   }
 
   /* Dark mode not needed - using dark elegant theme by default */
@@ -82,10 +83,15 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    letter-spacing: 0.01em;
+    line-height: 1.7;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
   }
 }
 
@@ -95,50 +101,92 @@
     background-image: var(--gradient-gold);
   }
 
-  .text-gradient-champagne {
+  .text-gradient-silver {
     @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-champagne);
+    background-image: var(--gradient-silver);
   }
 
-  .text-gradient-firework {
+  .text-gradient-elegant {
     @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-firework);
+    background-image: var(--gradient-elegant);
     background-size: 200% auto;
-    animation: gradientFlow 3s ease-in-out infinite;
+    animation: gradientFlow 4s ease-in-out infinite;
   }
 
   .btn-newyear {
     @apply bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold
-           transition-all duration-300 hover:scale-105 hover:shadow-lg;
+           transition-all duration-300 hover:scale-105;
     box-shadow: var(--shadow-glow);
+    letter-spacing: 0.05em;
+  }
+  
+  .btn-newyear:hover {
+    box-shadow: 0 0 40px hsl(var(--newyear-gold) / 0.6),
+                0 0 80px hsl(var(--newyear-gold) / 0.3),
+                0 4px 20px hsl(var(--newyear-gold) / 0.4);
   }
 
-  .btn-champagne {
+  .btn-elegant {
     @apply px-8 py-4 rounded-full font-semibold text-primary-foreground
            transition-all duration-300 hover:scale-105;
-    background-image: var(--gradient-champagne);
+    background-image: var(--gradient-elegant);
     box-shadow: var(--shadow-gold);
+    letter-spacing: 0.05em;
+  }
+  
+  .btn-elegant:hover {
+    box-shadow: 0 0 40px hsl(var(--newyear-gold) / 0.5),
+                0 0 70px hsl(var(--newyear-gold) / 0.25),
+                0 4px 20px hsl(var(--newyear-gold) / 0.3);
   }
 
   .card-festive {
     @apply bg-card rounded-2xl overflow-hidden transition-all duration-500
-           hover:shadow-xl hover:-translate-y-2 border border-border;
+           hover:shadow-xl hover:-translate-y-2 border border-border/50;
     box-shadow: var(--shadow-soft);
+  }
+
+  .card-elegant {
+    @apply bg-card rounded-2xl overflow-hidden transition-all duration-500
+           hover:-translate-y-1 border border-border/30;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(10px);
+  }
+  
+  .card-elegant:hover {
+    box-shadow: 0 0 30px hsl(var(--newyear-gold) / 0.4), 
+                0 0 60px hsl(var(--newyear-gold) / 0.2),
+                0 8px 40px hsl(220 40% 8% / 0.5);
   }
 
   .shimmer {
     background: linear-gradient(
       90deg,
       transparent 0%,
-      hsl(45 90% 55% / 0.3) 50%,
+      hsl(45 85% 58% / 0.25) 50%,
       transparent 100%
     );
     background-size: 200% 100%;
-    animation: shimmer 2s infinite;
+    animation: shimmer 3s infinite;
+  }
+
+  .shimmer-silver {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(220 15% 75% / 0.2) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
   }
 
   .glass-dark {
     @apply backdrop-blur-xl bg-card/80 border border-border/50 shadow-lg;
+  }
+
+  .glass-elegant {
+    @apply backdrop-blur-md bg-card/70 border border-border/30 shadow-elegant;
   }
 }
 
@@ -152,7 +200,15 @@
   }
 
   .text-shadow-gold {
-    text-shadow: 0 0 30px hsl(45 90% 55% / 0.5), 0 0 60px hsl(45 90% 55% / 0.3);
+    text-shadow: 0 0 20px hsl(45 85% 58% / 0.4), 0 0 40px hsl(45 85% 58% / 0.2);
+  }
+
+  .text-shadow-silver {
+    text-shadow: 0 0 20px hsl(220 15% 75% / 0.3), 0 0 40px hsl(220 15% 75% / 0.15);
+  }
+
+  .text-shadow-elegant {
+    text-shadow: 0 2px 8px hsl(0 0% 0% / 0.4), 0 0 20px hsl(45 85% 58% / 0.2);
   }
 }
 
@@ -188,10 +244,59 @@
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(45 90% 55% / 0.3);
+    box-shadow: 0 0 15px hsl(45 85% 58% / 0.25);
   }
   50% {
-    box-shadow: 0 0 50px hsl(45 90% 55% / 0.6);
+    box-shadow: 0 0 35px hsl(45 85% 58% / 0.4);
+  }
+}
+
+@keyframes glow-silver {
+  0%, 100% {
+    box-shadow: 0 0 15px hsl(220 15% 75% / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px hsl(220 15% 75% / 0.35);
+  }
+}
+
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  33% {
+    transform: translateY(-8px) translateX(2px);
+  }
+  66% {
+    transform: translateY(-4px) translateX(-2px);
+  }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100px) translateX(20px) rotate(180deg);
+    opacity: 0;
   }
 }
 
@@ -243,7 +348,23 @@
 }
 
 .animate-glow {
-  animation: glow 2s ease-in-out infinite;
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-glow-silver {
+  animation: glow-silver 3s ease-in-out infinite;
+}
+
+.animate-subtle-float {
+  animation: subtle-float 6s ease-in-out infinite;
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 4s ease-in-out infinite;
+}
+
+.animate-particle-float {
+  animation: particle-float 8s ease-in-out infinite;
 }
 
 .animate-firework {
@@ -272,17 +393,29 @@
 @keyframes neonPulse {
   0%, 100% {
     text-shadow: 
-      0 0 10px hsl(45 90% 55% / 0.8),
-      0 0 20px hsl(45 90% 55% / 0.6),
-      0 0 30px hsl(45 90% 55% / 0.4),
-      0 0 40px hsl(45 90% 55% / 0.2);
+      0 0 8px hsl(45 85% 58% / 0.6),
+      0 0 16px hsl(45 85% 58% / 0.4),
+      0 0 24px hsl(45 85% 58% / 0.3);
   }
   50% {
     text-shadow: 
-      0 0 20px hsl(45 90% 55% / 1),
-      0 0 40px hsl(45 90% 55% / 0.8),
-      0 0 60px hsl(45 90% 55% / 0.6),
-      0 0 80px hsl(45 90% 55% / 0.4);
+      0 0 16px hsl(45 85% 58% / 0.8),
+      0 0 32px hsl(45 85% 58% / 0.6),
+      0 0 48px hsl(45 85% 58% / 0.4);
+  }
+}
+
+@keyframes elegant-shimmer {
+  0% {
+    background-position: -200% center;
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    background-position: 200% center;
+    opacity: 0.8;
   }
 }
 
@@ -457,6 +590,170 @@
 
 /* Ensure animated headers don't overlap hero images: add spacing utility */
 .avoid-overlay { padding-top: 2.5rem; }
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+  .card-elegant {
+    @apply rounded-xl;
+  }
+  
+  .btn-newyear, .btn-elegant {
+    @apply px-6 py-3 text-sm;
+  }
+  
+  h1, h2, h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  .text-gradient-elegant {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+}
+
+/* Subtle particle effects */
+.particle-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle-effect::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, hsl(45 85% 58% / 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: particle-drift 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes particle-drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(20px, 20px);
+  }
+}
+
+/* Elegant glow effects */
+.glow-gold {
+  box-shadow: 0 0 20px hsl(45 85% 58% / 0.3), 0 0 40px hsl(45 85% 58% / 0.15);
+}
+
+.glow-silver {
+  box-shadow: 0 0 20px hsl(220 15% 75% / 0.25), 0 0 40px hsl(220 15% 75% / 0.1);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Elegant scroll animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Lueur dorée au hover pour les cartes */
+.card-elegant:hover {
+  filter: drop-shadow(0 0 20px hsl(var(--newyear-gold) / 0.4)) 
+          drop-shadow(0 0 40px hsl(var(--newyear-gold) / 0.2));
+}
+
+/* Lueur dorée pour les catégories */
+.category-card:hover {
+  filter: drop-shadow(0 0 25px hsl(var(--newyear-gold) / 0.5)) 
+          drop-shadow(0 0 50px hsl(var(--newyear-gold) / 0.3));
+}
+
+/* Subtle shimmer effect for premium elements */
+@keyframes elegantShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer-elegant {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--newyear-gold) / 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: elegantShimmer 3s infinite;
+}
+
+/* Premium card hover effect avec lueur dorée */
+.card-elegant::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--newyear-gold) / 0) 0%,
+    hsl(var(--newyear-gold) / 0.4) 50%,
+    hsl(var(--newyear-gold) / 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.card-elegant:hover::before {
+  opacity: 1;
+}
+
+/* Effet de lueur dorée pour tous les éléments interactifs */
+a:hover, button:hover {
+  filter: drop-shadow(0 0 8px hsl(var(--newyear-gold) / 0.3));
+}
+
+/* Lueur dorée spécifique pour les liens et boutons */
+a[href]:hover, button:not(:disabled):hover {
+  position: relative;
+}
+
+a[href]:hover::after, button:not(:disabled):hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--newyear-gold) / 0.8) 50%,
+    transparent 100%
+  );
+  border-radius: 2px;
+  box-shadow: 0 0 10px hsl(var(--newyear-gold) / 0.6);
+  animation: shimmer 2s infinite;
+}
 
 /* Snowing UI text styles removed per request */
 

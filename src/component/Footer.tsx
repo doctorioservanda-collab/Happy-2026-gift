@@ -4,10 +4,10 @@ import { Logo } from './Logo';
 
 export const Footer = () => {
   return (
-    <footer id="about" className="relative bg-gradient-to-b from-background to-christmas-dark/50 py-16 overflow-hidden">
+    <footer id="about" className="relative bg-gradient-to-b from-background to-newyear-midnight py-16 overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-christmas-gold/50 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-newyear-gold/50 to-transparent" />
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
@@ -16,7 +16,7 @@ export const Footer = () => {
             animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
             transition={{ duration: 4 + i, repeat: Infinity, delay: i * 0.5 }}
           >
-            <Sparkles className="w-4 h-4 text-christmas-gold/30" />
+            <Sparkles className="w-4 h-4 text-newyear-gold/30 animate-gentle-pulse" />
           </motion.div>
         ))}
       </div>
@@ -30,18 +30,18 @@ export const Footer = () => {
               Spreading joy and happiness across the globe. Premium New Year 2026 gifts 
               with Web3 payment options for the modern world.
             </p>
-            <div className="flex items-center gap-2 text-christmas-gold mb-4">
-              <Gift className="w-5 h-5" />
+            <div className="flex items-center gap-2 text-newyear-gold mb-4">
+              <Gift className="w-5 h-5 animate-subtle-float" />
               <span className="font-medium">2026+ Premium Gifts</span>
             </div>
             <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-christmas-gold transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-newyear-gold transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-christmas-gold transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-newyear-gold transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-christmas-gold transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-newyear-gold transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -53,7 +53,7 @@ export const Footer = () => {
             <ul className="space-y-2">
               {['All Products', 'New Arrivals', 'Best Sellers', 'Sale'].map(link => (
                 <li key={link}>
-                  <a href="#products" className="text-muted-foreground hover:text-christmas-gold transition-colors text-sm">
+                  <a href="#products" className="text-muted-foreground hover:text-newyear-gold transition-colors text-sm">
                     {link}
                   </a>
                 </li>
@@ -67,7 +67,7 @@ export const Footer = () => {
             <ul className="space-y-2">
               {['Electronics', 'Fashion', 'Jewelry', 'Home Decor', 'Toys & Games'].map(link => (
                 <li key={link}>
-                  <a href="#categories" className="text-muted-foreground hover:text-christmas-gold transition-colors text-sm">
+                  <a href="#categories" className="text-muted-foreground hover:text-newyear-gold transition-colors text-sm">
                     {link}
                   </a>
                 </li>
@@ -80,15 +80,15 @@ export const Footer = () => {
             <h4 className="font-heading font-semibold text-foreground mb-4">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Mail className="w-4 h-4 text-christmas-gold" />
+                <Mail className="w-4 h-4 text-newyear-gold" />
                 hello@newyear2026.com
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Phone className="w-4 h-4 text-christmas-gold" />
+                <Phone className="w-4 h-4 text-newyear-gold" />
                 +1 (555) NEW-2026
               </li>
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4 text-christmas-gold flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-newyear-gold flex-shrink-0 mt-0.5" />
                 Celebration Plaza, New York
               </li>
             </ul>
@@ -96,12 +96,12 @@ export const Footer = () => {
         </div>
 
         {/* Payment Methods */}
-        <div className="border-t border-christmas-gold/20 pt-8 mb-8">
+        <div className="border-t border-newyear-gold/20 pt-8 mb-8">
           <div className="flex flex-wrap items-center justify-center gap-6 text-muted-foreground">
             <span className="text-sm">Accepted Payments:</span>
             <div className="flex items-center gap-4">
-              <span className="px-3 py-1 bg-secondary/20 rounded-full text-secondary text-sm font-medium">ETH</span>
-              <span className="px-3 py-1 bg-christmas-gold/20 rounded-full text-christmas-gold text-sm font-medium">BTC</span>
+              <span className="px-3 py-1 bg-newyear-gold/20 rounded-full text-newyear-gold text-sm font-medium">ETH</span>
+              <span className="px-3 py-1 bg-newyear-silver/20 rounded-full text-newyear-silver text-sm font-medium">BTC</span>
               <span className="px-3 py-1 bg-muted rounded-full text-muted-foreground text-sm font-medium">VISA</span>
               <span className="px-3 py-1 bg-muted rounded-full text-muted-foreground text-sm font-medium">Mastercard</span>
             </div>
@@ -111,7 +111,7 @@ export const Footer = () => {
         <div className="text-center">
           <p className="text-sm text-muted-foreground">
             © 2026 Happy New Year Gift Shop. Made with{' '}
-            <Heart className="w-4 h-4 inline text-christmas-red fill-christmas-red" />{' '}
+            <Heart className="w-4 h-4 inline text-newyear-gold fill-newyear-gold animate-gentle-pulse" />{' '}
             for the celebration season.
           </p>
           <p className="text-xs text-muted-foreground/60 mt-2">

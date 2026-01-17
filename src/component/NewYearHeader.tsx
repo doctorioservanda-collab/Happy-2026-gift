@@ -21,7 +21,7 @@ export const NewYearHeader: React.FC<Props> = ({ onClick, className = '' }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="happy-3d header-visibility text-3xl md:text-5xl text-center text-gradient-modern text-shadow-gold snow-font select-none">
+        <div className="happy-3d header-visibility text-3xl md:text-5xl text-center text-gradient-elegant text-shadow-elegant snow-font select-none">
           <div className="inline-block">
             {Array.from(MAIN_TEXT).map((ch, i) => (
               <motion.span

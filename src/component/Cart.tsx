@@ -165,13 +165,13 @@ export const Cart = ({
                 <div className="grid grid-cols-2 gap-3">
                   <Button
                     onClick={() => handleCheckout('card')}
-                    className="btn-gold"
+                    className="btn-newyear"
                   >
                     Pay with Card
                   </Button>
                   <Button
                     onClick={() => handleCheckout('crypto')}
-                    className="btn-christmas flex items-center justify-center gap-2"
+                    className="btn-elegant flex items-center justify-center gap-2"
                   >
                     <Wallet className="w-4 h-4" />
                     Pay with ETH
