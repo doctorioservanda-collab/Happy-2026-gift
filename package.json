@@ -1,14 +1,21 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "happy-2026",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+   "cleanup": "taskkill /IM node.exe /F 2>nul || echo Ready",
+    "dev": "concurrently \"cd server && npm run dev\" \"wait-on http://localhost:3003/health && vite\"",
+    "start": "cmd /c \"taskkill /IM node.exe /F 2>nul & npm run dev\"",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "install:all": "npm install && cd server && npm install",
+    "postinstall": "cd server && npm install",
+    "start:dev": "concurrently \"npm run dev\" \"cd server && npm run dev\"",
+    "server": "cd server && npm start",
+    "server:dev": "cd server && npm run dev"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -72,6 +79,7 @@
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react-swc": "^3.11.0",
     "autoprefixer": "^10.4.21",
+    "concurrently": "^8.2.2",
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
@@ -81,6 +89,7 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
-    "vite": "^5.4.19"
+    "vite": "^5.4.19",
+    "wait-on": "^7.2.0"
   }
 }

@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { supabase } from '@/integrations/supabase/client';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Logo } from '@/components/Logo';
-import { Snowfall } from '@/components/Snowfall';
-import { toast } from '@/hooks/use-toast';
+import { Button } from '@/component/ui/button';
+import { Input } from '@/component/ui/input';
+import { Label } from '@/component/ui/label';
+import { Logo } from '@/component/Logo';
+// Snowfall removed per request
+import { toast } from '@/hook/use-toast';
 import { Mail, Lock, User, ArrowRight, Sparkles } from 'lucide-react';
 
 export const Auth = () => {
@@ -68,7 +68,7 @@ export const Auth = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-christmas-dark via-background to-christmas-dark flex items-center justify-center relative overflow-hidden">
-      <Snowfall />
+      {/* Snowfall removed per request */}
       
       {/* Animated background elements */}
       <div className="absolute inset-0 pointer-events-none">
