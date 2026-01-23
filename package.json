@@ -4,11 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-<<<<<<< HEAD
-   "cleanup": "taskkill /IM node.exe /F 2>nul || echo Ready",
-=======
     "cleanup": "taskkill /IM node.exe /F 2>nul || echo Ready",
->>>>>>> 5973f71be44d517e2c57865895f1013d6759d72a
     "dev": "concurrently \"cd server && npm run dev\" \"wait-on http://localhost:3003/health && vite\"",
     "start": "cmd /c \"taskkill /IM node.exe /F 2>nul & npm run dev\"",
     "build": "vite build",
