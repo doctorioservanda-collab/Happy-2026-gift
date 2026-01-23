@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+/.github/
+.env
+>>>>>>> 5973f71be44d517e2c57865895f1013d6759d72a
 # Logs
 logs
 *.log
