@@ -1,31 +1,16 @@
-import { useEffect, useState } from 'react';
-import { 
-  HeroBackground, 
-  HeroContent, 
-  ScrollIndicator, 
-  FloatingPresents, 
-  SparklesLayer,
-  GlowingOrbs 
-} from './hero';
-import { Fireworks } from './Fireworks';
+import HeroBackground from "./hero/HeroBackground";
+import HeroContent from "./hero/HeroContent";
+import ScrollIndicator from "./hero/ScrollIndicator";
 
-export const Hero = () => {
-  const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowContent(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
-
+const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden">
       <HeroBackground />
-      <Fireworks />
-      <SparklesLayer />
-      <GlowingOrbs />
-      <FloatingPresents />
-      <HeroContent showContent={showContent} />
+      <HeroContent />
       <ScrollIndicator />
     </section>
   );
 };
+
+export default Hero;
+;
