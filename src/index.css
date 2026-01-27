@@ -6,6 +6,89 @@
 
 @layer base {
   :root {
+    /* LIGHT */
+    --background: 0 0% 100%;
+    --foreground: 35 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 35 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 35 25% 12%;
+
+    --primary: 45 90% 45%;
+    --primary-foreground: 35 20% 10%;
+
+    --secondary: 340 70% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 40 20% 95%;
+    --muted-foreground: 35 10% 35%;
+
+    --accent: 280 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 45 90% 45%;
+
+    --radius: 0.75rem;
+
+    /* Christmas palette (para clases christmas-*) */
+    --christmas-red: 0 80% 55%;
+    --christmas-green: 145 80% 35%;
+    --christmas-gold: 45 90% 45%;
+    --christmas-cream: 45 30% 96%;
+    --christmas-dark: 35 25% 12%;
+
+    --snow-white: 0 0% 100%;
+  }
+
+  .dark {
+    /* DARK (usa aquí tu tema actual, el que ya tienes) */
+    --background: 35 25% 12%;
+    --foreground: 45 30% 96%;
+
+    --card: 35 20% 16%;
+    --card-foreground: 45 30% 96%;
+
+    --popover: 35 20% 14%;
+    --popover-foreground: 45 30% 96%;
+
+    --primary: 45 90% 55%;
+    --primary-foreground: 35 20% 10%;
+
+    --secondary: 340 70% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 35 15% 20%;
+    --muted-foreground: 45 20% 70%;
+
+    --accent: 280 60% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 15% 25%;
+    --input: 35 15% 25%;
+    --ring: 45 90% 55%;
+
+    /* Christmas palette */
+    --christmas-red: 0 80% 55%;
+    --christmas-green: 145 80% 50%;
+    --christmas-gold: 45 90% 55%;
+    --christmas-cream: 45 30% 96%;
+    --christmas-dark: 35 25% 8%;
+
+    --snow-white: 0 0% 100%;
+  }
+}
+
+/*
     --background: 35 25% 12%;
     --foreground: 45 30% 96%;
 
@@ -36,7 +119,7 @@
 
     --radius: 0.75rem;
 
-    /* New Year 2026 specific colors */
+    /* New Year 2026 specific colors 
     --newyear-gold: 45 90% 55%;
     --newyear-champagne: 40 60% 70%;
     --newyear-purple: 280 60% 50%;
@@ -48,13 +131,13 @@
     --firework-green: 145 80% 50%;
     --snow-white: 0 0% 100%;
 
-    /* Gradients */
+    /* Gradients 
     --gradient-gold: linear-gradient(135deg, hsl(45 90% 55%) 0%, hsl(35 80% 45%) 50%, hsl(45 90% 55%) 100%);
     --gradient-champagne: linear-gradient(135deg, hsl(40 60% 70%) 0%, hsl(45 90% 55%) 50%, hsl(40 60% 70%) 100%);
     --gradient-midnight: linear-gradient(180deg, hsl(35 25% 12%) 0%, hsl(35 20% 8%) 100%);
     --gradient-firework: linear-gradient(135deg, hsl(0 80% 55%) 0%, hsl(280 60% 50%) 50%, hsl(200 90% 60%) 100%);
 
-    /* Shadows */
+    /* Shadows 
     --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
     --shadow-glow: 0 0 60px hsl(45 90% 55% / 0.3);
     --shadow-gold: 0 4px 30px hsl(45 90% 55% / 0.4);
@@ -69,7 +152,7 @@
   }
 
   /* Dark mode not needed - using dark elegant theme by default */
-}
+
 
 @layer base {
   * {

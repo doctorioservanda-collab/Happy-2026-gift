@@ -1,14 +1,24 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingCart, Wallet, Menu, X, User, LogOut } from 'lucide-react';
-import { useWallet } from '@/hook/useWallet';
-import { Button } from '@/component/ui/button';
-import { Badge } from '@/component/ui/badge';
-import { Logo } from './Logo';
-import brandCandle from '@/assets/brand-candle-2026.png';
-import { supabase } from '@/integrations/supabase/client';
-import { User as SupabaseUser } from '@supabase/supabase-js';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { useWallet } from "@/hook/useWallet";
+import { Button } from "@/component/ui/button";
+import { Badge } from "@/component/ui/badge";
+import { Logo } from "./Logo";
+import brandCandle from "@/assets/brand-candle-2026.png";
+import { supabase } from "@/integrations/supabase/client";
+import { User as SupabaseUser } from "@supabase/supabase-js";
+import {
+  ShoppingCart,
+  Wallet,
+  Menu,
+  X,
+  User,
+  LogOut,
+  Sun,
+  Moon,
+} from "lucide-react";
+import { useTheme } from "@/context/theme";
 
 interface HeaderProps {
   cartCount: number;
@@ -16,21 +26,32 @@ interface HeaderProps {
 }
 
 export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
-  const { address, isConnecting, connect, disconnect, formatAddress, isConnected, balance } = useWallet();
+  const {
+    address,
+    isConnecting,
+    connect,
+    disconnect,
+    formatAddress,
+    isConnected,
+    balance,
+  } = useWallet();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [user, setUser] = useState<SupabaseUser | null>(null);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
       setUser(session?.user ?? null);
     });
 
@@ -46,11 +67,11 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
   };
 
   return (
-    <motion.header 
+    <motion.header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled 
-          ? 'glass border-b border-christmas-gold/20 shadow-lg' 
-          : 'bg-transparent'
+        isScrolled
+          ? "glass border-b border-christmas-gold/20 shadow-lg"
+          : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -64,16 +85,20 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
             className="flex items-center gap-3"
             whileHover={{ scale: 1.02 }}
           >
-            <img src={brandCandle} alt="brand" className="w-10 h-10 object-contain" />
+            <img
+              src={brandCandle}
+              alt="brand"
+              className="w-10 h-10 object-contain"
+            />
             <Logo size="sm" />
           </motion.a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {['Home', 'Products', 'Categories', 'About'].map((item) => (
+            {["Home", "Products", "Categories", "About"].map((item) => (
               <motion.a
                 key={item}
-                href={item === 'Home' ? '/' : `#${item.toLowerCase()}`}
+                href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
                 className="text-foreground/80 hover:text-christmas-gold transition-colors font-medium tracking-wide"
                 whileHover={{ scale: 1.05 }}
               >
@@ -96,7 +121,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                     <div className="flex items-center gap-2">
                       <User className="w-4 h-4 text-christmas-gold" />
                       <span className="text-sm font-medium text-foreground">
-                        {user.email?.split('@')[0]}
+                        {user.email?.split("@")[0]}
                       </span>
                     </div>
                   </div>
@@ -138,7 +163,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                       </span>
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      {parseFloat(balance || '0').toFixed(4)} ETH
+                      {parseFloat(balance || "0").toFixed(4)} ETH
                     </p>
                   </div>
                   <Button
@@ -157,10 +182,24 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                   className="bg-gradient-to-r from-secondary to-christmas-green text-foreground hover:opacity-90 flex items-center gap-2"
                 >
                   <Wallet className="w-4 h-4" />
-                  {isConnecting ? 'Connecting...' : 'Connect Wallet'}
+                  {isConnecting ? "Connecting..." : "Connect Wallet"}
                 </Button>
               )}
             </div>
+            {/* Theme Toggle */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className="p-3 rounded-full bg-card hover:bg-christmas-gold/10 border border-christmas-gold/30 transition-colors"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5 text-christmas-gold" />
+              ) : (
+                <Moon className="w-5 h-5 text-christmas-gold" />
+              )}
+            </motion.button>
 
             {/* Cart */}
             <motion.button
@@ -196,15 +235,15 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
           {mobileMenuOpen && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
+              animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               className="md:hidden overflow-hidden bg-background/95 backdrop-blur-md rounded-b-xl border border-christmas-gold/20"
             >
               <nav className="py-4 flex flex-col gap-4 px-4">
-                {['Home', 'Products', 'Categories', 'About'].map((item) => (
-                  <a 
+                {["Home", "Products", "Categories", "About"].map((item) => (
+                  <a
                     key={item}
-                    href={item === 'Home' ? '/' : `#${item.toLowerCase()}`} 
+                    href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
                     className="text-foreground/80 hover:text-christmas-gold transition-colors font-medium"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -213,7 +252,10 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                 ))}
                 {!user && (
                   <Link to="/auth" onClick={() => setMobileMenuOpen(false)}>
-                    <Button variant="outline" className="w-full border-christmas-gold/30">
+                    <Button
+                      variant="outline"
+                      className="w-full border-christmas-gold/30"
+                    >
                       <User className="w-4 h-4 mr-2" />
                       Sign In
                     </Button>
@@ -236,7 +278,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                     className="bg-gradient-to-r from-secondary to-christmas-green w-full"
                   >
                     <Wallet className="w-4 h-4 mr-2" />
-                    {isConnecting ? 'Connecting...' : 'Connect Wallet'}
+                    {isConnecting ? "Connecting..." : "Connect Wallet"}
                   </Button>
                 )}
               </nav>
