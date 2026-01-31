@@ -1,0 +1,673 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700&family=Mountains+of+Christmas&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 25% 12%;
+    --foreground: 45 30% 96%;
+
+    --card: 35 20% 16%;
+    --card-foreground: 45 30% 96%;
+
+    --popover: 35 20% 14%;
+    --popover-foreground: 45 30% 96%;
+
+    --primary: 45 90% 55%;
+    --primary-foreground: 35 20% 10%;
+
+    --secondary: 340 70% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 35 15% 20%;
+    --muted-foreground: 45 20% 70%;
+
+    --accent: 280 60% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 15% 25%;
+    --input: 35 15% 25%;
+    --ring: 45 90% 55%;
+
+    --radius: 0.75rem;
+
+    /* New Year 2026 specific colors */
+    --newyear-gold: 45 90% 55%;
+    --newyear-champagne: 40 60% 70%;
+    --newyear-purple: 280 60% 50%;
+    --newyear-rose: 340 70% 55%;
+    --newyear-midnight: 35 25% 8%;
+    --newyear-silver: 220 15% 80%;
+    --firework-red: 0 80% 55%;
+    --firework-blue: 200 90% 60%;
+    --firework-green: 145 80% 50%;
+    --snow-white: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(45 90% 55%) 0%, hsl(35 80% 45%) 50%, hsl(45 90% 55%) 100%);
+    --gradient-champagne: linear-gradient(135deg, hsl(40 60% 70%) 0%, hsl(45 90% 55%) 50%, hsl(40 60% 70%) 100%);
+    --gradient-midnight: linear-gradient(180deg, hsl(35 25% 12%) 0%, hsl(35 20% 8%) 100%);
+    --gradient-firework: linear-gradient(135deg, hsl(0 80% 55%) 0%, hsl(280 60% 50%) 50%, hsl(200 90% 60%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 60px hsl(45 90% 55% / 0.3);
+    --shadow-gold: 0 4px 30px hsl(45 90% 55% / 0.4);
+    --shadow-firework: 0 0 80px hsl(280 60% 50% / 0.4);
+
+    --font-heading: 'Bodoni Moda', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-display: 'Orbitron', sans-serif;
+    --font-mono: 'Space Grotesk', sans-serif;
+    --font-elegant: 'Bebas Neue', sans-serif;
+    --font-snow: 'Great Vibes', 'Mountains of Christmas', 'Cinzel Decorative', serif;
+  }
+
+  /* Dark mode not needed - using dark elegant theme by default */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+  }
+
+  .text-gradient-champagne {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-champagne);
+  }
+
+  .text-gradient-firework {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-firework);
+    background-size: 200% auto;
+    animation: gradientFlow 3s ease-in-out infinite;
+  }
+
+  .btn-newyear {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold
+           transition-all duration-300 hover:scale-105 hover:shadow-lg;
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-champagne {
+    @apply px-8 py-4 rounded-full font-semibold text-primary-foreground
+           transition-all duration-300 hover:scale-105;
+    background-image: var(--gradient-champagne);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .card-festive {
+    @apply bg-card rounded-2xl overflow-hidden transition-all duration-500
+           hover:shadow-xl hover:-translate-y-2 border border-border;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(45 90% 55% / 0.3) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-xl bg-card/80 border border-border/50 shadow-lg;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-md bg-background/80;
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 10px hsl(0 0% 0% / 0.5);
+  }
+
+  .text-shadow-gold {
+    text-shadow: 0 0 30px hsl(45 90% 55% / 0.5), 0 0 60px hsl(45 90% 55% / 0.3);
+  }
+}
+
+/* Snowfall Animation */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(45 90% 55% / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 50px hsl(45 90% 55% / 0.6);
+  }
+}
+
+/* Firework Animation */
+@keyframes firework {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes fireworkBurst {
+  0% {
+    box-shadow: 0 0 0 0 hsl(45 90% 55% / 0.8),
+                0 0 0 0 hsl(280 60% 50% / 0.8),
+                0 0 0 0 hsl(0 80% 55% / 0.8);
+  }
+  100% {
+    box-shadow: 0 -50px 0 0 hsl(45 90% 55% / 0),
+                -50px 30px 0 0 hsl(280 60% 50% / 0),
+                50px 30px 0 0 hsl(0 80% 55% / 0);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+.animate-snowfall {
+  animation: snowfall linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-firework {
+  animation: firework 1s ease-out infinite;
+}
+
+/* Modern 2026 Letter Animations */
+@keyframes letterReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) rotateX(-90deg);
+    filter: blur(10px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10%) rotateX(10deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px hsl(45 90% 55% / 0.8),
+      0 0 20px hsl(45 90% 55% / 0.6),
+      0 0 30px hsl(45 90% 55% / 0.4),
+      0 0 40px hsl(45 90% 55% / 0.2);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px hsl(45 90% 55% / 1),
+      0 0 40px hsl(45 90% 55% / 0.8),
+      0 0 60px hsl(45 90% 55% / 0.6),
+      0 0 80px hsl(45 90% 55% / 0.4);
+  }
+}
+
+@keyframes champagneBubble {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInBounce {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(20px) scale(1.1);
+  }
+  80% {
+    transform: translateX(-10px) scale(0.95);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+.animate-letter-reveal {
+  animation: letterReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-neon-pulse {
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+.animate-slide-bounce {
+  animation: slideInBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-champagne-bubble {
+  animation: champagneBubble 2s ease-out infinite;
+}
+
+/* Modern gradient text effects */
+.text-gradient-modern {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(
+    135deg,
+    hsl(45 90% 55%) 0%,
+    hsl(280 60% 50%) 50%,
+    hsl(45 90% 55%) 100%
+  );
+  background-size: 200% auto;
+  animation: gradientFlow 3s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* 2026 special styling */
+.text-2026 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+/* Happy 3D shining style */
+.happy-3d {
+  font-family: var(--font-elegant);
+  font-weight: 900;
+  font-size: 2.6rem;
+  line-height: 1;
+  background-image: linear-gradient(90deg, #d7263d, #f7c948, #3b82f6, #f97316);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow:
+    0 2px 0 rgba(0,0,0,0.35),
+    0 8px 24px rgba(215,39,61,0.12),
+    0 18px 40px rgba(0,0,0,0.35);
+  transform: translateZ(0);
+  animation: gradientFlow 4s linear infinite, neonPulse 2.5s ease-in-out infinite;
+}
+
+/* Snow-style display font (script/elegant) */
+.snow-font {
+  font-family: var(--font-snow);
+  letter-spacing: 0.02em;
+}
+
+/* Header visibility: stronger outlines and backdrop for legibility */
+.header-visibility {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 6px 24px rgba(0,0,0,0.45);
+  -webkit-text-stroke: 0.6px rgba(0,0,0,0.35);
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.45));
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Rainbow sliding band removed per request */
+
+/* Year logo styling */
+.year-logo {
+  display: inline-flex;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.year-digit {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.6rem;
+  line-height: 1;
+  display: inline-block;
+  padding: 0.05rem 0.2rem;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.45), 0 2px 6px rgba(0,0,0,0.35);
+  transform: translateZ(12px) rotateX(0deg);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35), inset 0 -6px 14px rgba(255,255,255,0.02);
+  position: relative;
+  overflow: visible;
+}
+
+@keyframes logoShine {
+  0% { background-position: -150% 0; }
+  50% { background-position: 150% 0; }
+  100% { background-position: -150% 0; }
+}
+
+.year-digit::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 8px;
+  mix-blend-mode: overlay;
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+  background-size: 200% auto;
+  animation: logoShine 2.8s linear infinite;
+  pointer-events: none;
+}
+
+/* Per-digit color fallback when JS inline styles don't load */
+.digit-fallback-1 { background-image: linear-gradient(90deg,#ff8a00,#e52e71); }
+.digit-fallback-2 { background-image: linear-gradient(90deg,#00c6ff,#0072ff); }
+.digit-fallback-3 { background-image: linear-gradient(90deg,#7f00ff,#e100ff); }
+.digit-fallback-4 { background-image: linear-gradient(90deg,#f9e2a2,#ffd6e0); }
+
+/* Larger year digits on md+ */
+@media (min-width: 768px) {
+  .year-digit { font-size: 2.4rem; padding: 0.1rem 0.4rem; }
+}
+
+
+/* Ensure animated headers don't overlap hero images: add spacing utility */
+.avoid-overlay { padding-top: 2.5rem; }
+
+/* Snowing UI text styles removed per request */
+
+
+/* Category card hover effects */
+.category-card {
+  @apply relative overflow-hidden rounded-2xl border border-border/50;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.category-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent z-10;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover::before {
+  @apply from-primary/50 via-primary/20;
+}
+
+.category-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px -12px hsl(45 90% 55% / 0.3);
+}
+
+/* Fireworks overlay */
+.fireworks-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.firework-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: fireworkRise 1.5s ease-out forwards;
+}
+
+@keyframes fireworkRise {
+  0% {
+    transform: translateY(100vh) scale(1);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20vh) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Snowflake particle background utility */
+.bg-snow {
+  background-color: hsl(0 0% 100%);
+}
+
+/* Happy New Year heading animation */
+.happy-ny {
+  display: inline-block;
+  background-image: linear-gradient(90deg, hsl(45 90% 55%), hsl(280 60% 50%), hsl(340 70% 55%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: happyGlow 3s linear infinite;
+  font-weight: 800;
+}
+
+@keyframes happyGlow {
+  0% { background-position: 0% center; text-shadow: 0 6px 30px rgba(0,0,0,0.35); }
+  50% { background-position: 100% center; text-shadow: 0 10px 40px rgba(0,0,0,0.45); }
+  100% { background-position: 0% center; text-shadow: 0 6px 30px rgba(0,0,0,0.35); }
+}
+
+/* Big faint promo text placed behind headings */
+.promo-behind {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.8rem;
+  line-height: 1.1;
+  opacity: 0.14;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  font-weight: 800;
+  color: var(--snow-white);
+  filter: blur(0.3px);
+}
+
+@media (min-width: 1280px) {
+  .promo-behind { font-size: 2.6rem; opacity: 0.12; }
+}
+
+@media (max-width: 640px) {
+  .promo-behind { font-size: 1.1rem; opacity: 0.08; transform: translate(-50%, -60%); }
+}
+
+/* Small sparkle dots over heading */
+.heading-sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0.2) 60%, transparent 100%);
+  box-shadow: 0 0 12px rgba(255,255,255,0.6);
+  animation: sparkleFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes sparkleFloat {
+  0% { transform: translateY(0) scale(1); opacity: 0.9; }
+  50% { transform: translateY(-8px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.9; }
+}
+
+/* 3D Happy 2026 heading */
+.happy-2026 {
+  font-family: var(--font-snow);
+  font-weight: 900;
+  font-size: 3.6rem;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  position: relative;
+  background-image: linear-gradient(90deg, hsl(45 90% 55%), hsl(280 60% 50%), hsl(340 70% 55%));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow:
+    0 2px 0 rgba(0,0,0,0.35),
+    0 10px 30px rgba(0,0,0,0.45),
+    0 30px 80px rgba(59,130,246,0.10);
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  animation: happyShimmer 4s linear infinite, happyTilt 6s ease-in-out infinite;
+}
+
+.happy-2026 .year {
+  display: inline-block;
+  margin-left: 0.6rem;
+  font-family: var(--font-elegant);
+  font-weight: 900;
+  font-size: 1.05em;
+}
+
+@keyframes happyShimmer {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+@keyframes happyTilt {
+  0% { transform: translateZ(0) rotateX(1deg) translateY(0); }
+  50% { transform: translateZ(12px) rotateX(0deg) translateY(-6px); }
+  100% { transform: translateZ(0) rotateX(1deg) translateY(0); }
+}
+
+/* small falling snow around the heading */
+.happy-2026-wrap { position: relative; display: inline-block; }
+.happy-2026-wrap .flake {
+  position: absolute;
+  color: var(--snow-white);
+  font-size: 0.9rem;
+  opacity: 0.95;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+  animation: flakeFall linear infinite;
+}
+.happy-2026-wrap .flake:nth-child(1) { left: -18px; top: -18px; animation-duration: 4.5s; animation-delay: 0s; }
+.happy-2026-wrap .flake:nth-child(2) { left: 10%; top: -30px; animation-duration: 5.2s; animation-delay: 0.6s; }
+.happy-2026-wrap .flake:nth-child(3) { right: -18px; top: -22px; animation-duration: 4.8s; animation-delay: 0.3s; }
+
+@keyframes flakeFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(36px) rotate(180deg); opacity: 0.35; }
+}
+
+/* Make the heading larger on larger screens */
+@media (min-width: 768px) {
+  .happy-2026 { font-size: 4.8rem; }
+}
+@media (min-width: 1280px) {
+  .happy-2026 { font-size: 6rem; }
+}
+
+/* Larger welcome popup / alert adjustments */
+.welcome-popup-large {
+  --popup-radius: 2rem;
+}
+.welcome-popup-large .btn-newyear {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.05rem;
+}
+.welcome-popup-large .happy-3d {
+  font-size: 5rem;
+}
+.welcome-popup-large .text-2026 {
+  font-size: 4rem;
+}
+.welcome-popup-large .mx-auto.w-48.h-48, .welcome-popup-large img.w-48.h-48,
+.welcome-popup-large img.w-56.h-56,
+.welcome-popup-large img.w-64.h-64 {
+  width: 160px;
+  height: 160px;
+}
+.welcome-popup-large .p-6 { padding: 3rem; }
+.welcome-popup-large .btn-newyear { font-size: 1.15rem; padding-top: 1.1rem; padding-bottom: 1.1rem; }
